@@ -1,6 +1,6 @@
 import React from "react";
 
-function Loader() {
+function Loading() {
     return (
         <>
             <div className="flex flex-row gap-2">
@@ -12,4 +12,4 @@ function Loader() {
     );
 }
 
-export default Loader;
+export default Loading;
