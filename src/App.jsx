@@ -12,6 +12,8 @@ function App() {
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
 
+    useEffect(() => {}, []);
+
     return (
         <div className=" min-h-screen flex flex-wrap content-between bg-[#131516]">
             <div className="w-full block">

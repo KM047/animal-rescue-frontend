@@ -10,6 +10,7 @@ import Input from "./Input";
 import AuthLayout from "./AuthLayout";
 import LogoutBtn from "./Header/LogoutBtn";
 import Container from "./Container/Container";
+import Dashboard from "./Dashboard/Dashboard";
 
 export {
     Header,
@@ -24,4 +25,5 @@ export {
     AuthLayout,
     LogoutBtn,
     Container,
+    Dashboard,
 };
