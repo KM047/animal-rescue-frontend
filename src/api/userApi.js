@@ -1,8 +1,11 @@
 import axiosInstance from "./../utils/axiosInstance";
-export const getUser = async (userId) => {
+export const getUser = async () => {
     try {
-        const response = await axiosInstance.get(`/users/${userId}`);
-        return response.data;
+        const response = await axiosInstance.get("/api/users/current-user");
+
+        const data = await response.json();
+        console.log("data received", data);
+        return data;
     } catch (error) {
         console.error("Error fetching user:", error);
         throw error;

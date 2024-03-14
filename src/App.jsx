@@ -15,7 +15,7 @@ function App() {
     useEffect(() => {}, []);
 
     return (
-        <div className=" min-h-screen flex flex-wrap content-between bg-[#131516]">
+        <div className=" min-h-screen flex flex-wrap content-between bg-[#000000]">
             <div className="w-full block">
                 <Header />
                 {!loading ? (

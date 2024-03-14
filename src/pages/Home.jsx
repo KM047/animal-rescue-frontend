@@ -1,7 +1,12 @@
 import React from "react";
+import { Home as HeroPage } from "./../components";
 
 function Home() {
-    return <div className="text-white">Home</div>;
+    return (
+        <>
+            <HeroPage />
+        </>
+    );
 }
 
 export default Home;

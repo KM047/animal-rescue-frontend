@@ -10,7 +10,7 @@ function Header() {
     const navItems = [
         {
             name: "Home",
-            slug: "/home",
+            slug: "/",
             active: true,
         },
         {
@@ -41,7 +41,7 @@ function Header() {
     ];
 
     return (
-        <header className="py-3 shadow border-b-[1px] border-[#34383A] text-white">
+        <header className="py-2 text-white">
             <Container>
                 <nav className="flex items-center justify-between relative">
                     <div className="mr-4">

@@ -11,6 +11,7 @@ import AuthLayout from "./AuthLayout";
 import LogoutBtn from "./Header/LogoutBtn";
 import Container from "./Container/Container";
 import Dashboard from "./Dashboard/Dashboard";
+import Home from "./Home/Home";
 
 export {
     Header,
@@ -26,4 +27,5 @@ export {
     LogoutBtn,
     Container,
     Dashboard,
+    Home,
 };
