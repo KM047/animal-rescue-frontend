@@ -6,30 +6,51 @@ import { login as authLogin } from "../store/authSlice";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { getCurrentUser, userLogin } from "../api/userApi";
+import Cookies from "js-cookie";
 
 function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [error, setError] = useState();
     const [loading, setLoading] = useState(false);
-    const { register, handleSubmit } = useForm();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
 
     const login = async (data) => {
         setError("");
         try {
             setLoading(true);
-            const session = await fetch("/api/users/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            });
+
+            const session = await userLogin(data);
             if (session) {
-                const userData = session.json();
-                if (userData) dispatch(authLogin(userData));
-                navigate("/home");
-                window.location.reload();
+                console.log("session -> ", session);
+
+                Cookies.set("accessToken", session.data.accessToken, {
+                    expires: 7,
+                });
+                Cookies.set("refreshToken", session.data.refreshToken, {
+                    expires: 7,
+                });
+
+                setError("Logged in successfully");
+                navigate("/server-health");
+                const userData = await getCurrentUser();
+
+                console.log("Logged user Data", userData);
+                if (userData) dispatch(authLogin(userData.data));
+
+                localStorage.setItem("accessToken", session.data.accessToken);
+
+                localStorage.setItem(
+                    "userLogged",
+                    JSON.stringify(userData.data)
+                );
+                localStorage.setItem("isLoggedIn", true);
+                // window.location.reload();
             }
         } catch (error) {
             setError(error.message);

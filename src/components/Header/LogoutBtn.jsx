@@ -2,12 +2,26 @@ import { useDispatch } from "react-redux";
 // import authService from "../../appwrite/auth";
 
 import { useNavigate } from "react-router-dom";
+import { logoutUser } from "../../api/userApi";
+import Cookies from "js-cookie";
+import { logout } from "../../store/authSlice";
 
 function LogoutBtn() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const logoutHandler = () => {
-        navigate("/login");
+
+    const logoutHandler = async () => {
+        window.localStorage.clear();
+        try {
+            const data = await logoutUser();
+
+            console.log({ data });
+            dispatch(logout());
+            navigate("/login");
+            window.location.reload();
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (

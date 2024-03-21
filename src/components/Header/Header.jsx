@@ -14,6 +14,11 @@ function Header() {
             active: true,
         },
         {
+            name: "Server Health",
+            slug: "/server-health",
+            active: !authStatus,
+        },
+        {
             name: "Login",
             slug: "/login",
             active: !authStatus,
@@ -38,6 +43,11 @@ function Header() {
             slug: "/add-query",
             active: authStatus,
         },
+        {
+            name: "User Profile",
+            slug: "/profile",
+            active: authStatus,
+        },
     ];
 
     return (
@@ -45,7 +55,7 @@ function Header() {
             <Container>
                 <nav className="flex items-center justify-between relative">
                     <div className="mr-4">
-                        <Link to="/home">
+                        <Link to="/">
                             <Logo width="70px" />
                         </Link>
                     </div>

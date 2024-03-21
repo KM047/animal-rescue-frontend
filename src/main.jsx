@@ -9,6 +9,8 @@ import { AuthLayout } from "./components/index.js";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
+import ServerHealthCheck from "./pages/ServerHealthCheck.jsx";
+import Profile from "./pages/Profile.jsx";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +20,14 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
+            },
+            {
+                path: "/server-health",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <ServerHealthCheck />
+                    </AuthLayout>
+                ),
             },
             {
                 path: "/login",
@@ -32,6 +42,14 @@ const router = createBrowserRouter([
                 element: (
                     <AuthLayout authentication={false}>
                         <Signup />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/profile",
+                element: (
+                    <AuthLayout authentication>
+                        <Profile />
                     </AuthLayout>
                 ),
             },

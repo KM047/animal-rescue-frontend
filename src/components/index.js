@@ -12,6 +12,7 @@ import LogoutBtn from "./Header/LogoutBtn";
 import Container from "./Container/Container";
 import Dashboard from "./Dashboard/Dashboard";
 import Home from "./Home/Home";
+import Profile from "./Profile/Profile";
 
 export {
     Header,
@@ -28,4 +29,5 @@ export {
     Container,
     Dashboard,
     Home,
+    Profile,
 };
