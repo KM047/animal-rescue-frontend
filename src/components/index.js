@@ -13,6 +13,7 @@ import Container from "./Container/Container";
 import Dashboard from "./Dashboard/Dashboard";
 import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
+import AnimalCard from "./AnimalCard";
 
 export {
     Header,
@@ -30,4 +31,5 @@ export {
     Dashboard,
     Home,
     Profile,
+    AnimalCard,
 };

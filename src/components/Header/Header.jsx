@@ -116,8 +116,8 @@ function Header() {
                                             to={item.slug}
                                             onClick={() => setIsMenuOpen(false)}
                                             className={({ isActive }) =>
-                                                `block px-6 py-2 duration-200 text-[#a49d91] hover:text-white ${
-                                                    isActive && "text-[#fff]"
+                                                `block px-6 py-2 duration-200 text-[#a49d91] hover:text-white text-lg font-semibold ${
+                                                    isActive && "text-[#5fdcf2]"
                                                 }`
                                             }
                                         >
@@ -128,7 +128,7 @@ function Header() {
                         )}
 
                         {authStatus && (
-                            <li>
+                            <li className="text-lg font-semibold">
                                 <LogoutBtn />
                             </li>
                         )}

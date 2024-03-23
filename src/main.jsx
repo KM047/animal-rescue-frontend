@@ -12,6 +12,7 @@ import Signup from "./pages/Signup.jsx";
 import ServerHealthCheck from "./pages/ServerHealthCheck.jsx";
 import Profile from "./pages/Profile.jsx";
 import TestingPage from "./pages/TestingPage.jsx";
+import MyQuery from "./pages/MyQuery.jsx";
 
 const router = createBrowserRouter([
     {
@@ -59,6 +60,14 @@ const router = createBrowserRouter([
                 element: (
                     <AuthLayout authentication={false}>
                         <TestingPage />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/my-queries",
+                element: (
+                    <AuthLayout authentication>
+                        <MyQuery />
                     </AuthLayout>
                 ),
             },

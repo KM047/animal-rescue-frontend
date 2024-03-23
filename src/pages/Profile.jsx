@@ -1,11 +1,13 @@
 import React from "react";
 
-import { Profile as UserProfile } from "../components";
+import { Container, Profile as UserProfile } from "../components";
 
 function Profile() {
     return (
         <div>
-            <UserProfile />
+            <Container>
+                <UserProfile />a
+            </Container>
         </div>
     );
 }

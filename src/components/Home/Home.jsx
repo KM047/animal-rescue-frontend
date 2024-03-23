@@ -14,33 +14,27 @@ import "./../../index.css";
 import { Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Dashboard from "../Dashboard/Dashboard";
-import { getCurrentUser } from "./../../api/userApi";
-import { login, logout } from "../../store/authSlice";
-import AllAnimals from "./../AllAnimals";
 import AnimalCard from "../AnimalCard";
 
 export default function Home() {
     const user = useSelector((state) => state.auth.userData);
     const allAnimalsData = useSelector((state) => state.animals.animalsData);
 
-    
-
     console.log("allAnimalsData is", allAnimalsData);
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        getCurrentUser().then((userData) => {
-            if (userData) {
-                console.log(" Data in home page", userData);
-                
-                dispatch(login(userData.data));
-            } else {
-                dispatch(logout());
-            }
-        });
-    }, []);
+    // useEffect(() => {
+    //     getCurrentUser().then((userData) => {
+    //         if (userData) {
+    //             console.log(" Data in home page", userData);
+
+    //             dispatch(login(userData.data));
+    //         } else {
+    //             dispatch(logout());
+    //         }
+    //     });
+    // }, []);
 
     console.log("Home page loaded", user);
 
@@ -54,7 +48,7 @@ export default function Home() {
                         </h1>
                     ) : (
                         <>
-                            <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6 flex justify-center items-center p-4">
+                            <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6 flex justify-center items-center p-4 ">
                                 <Swiper
                                     spaceBetween={30}
                                     centeredSlides={true}
@@ -63,9 +57,9 @@ export default function Home() {
                                         disableOnInteraction: false,
                                     }}
                                     modules={[Autoplay]}
-                                    className="mySwiper"
+                                    className="mySwiper rounded-xl"
                                 >
-                                    <SwiperSlide>
+                                    <SwiperSlide className="">
                                         <img
                                             className="aspect-[3/2] bg-gray-50 object-cover lg:aspect-[4/3] lg:h-[500px] xl:aspect-[16/9] rounded-lg"
                                             src={`${img1}`}
@@ -90,7 +84,7 @@ export default function Home() {
                             </div>
                             <div className="flex flex-col justify-center px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
                                 <h1 className="mt-8 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-6xl leading-8 ">
-                                    Every Pet Deserves a Happy Ending. <br />{" "}
+                                    Every Pet Deserves a Happy Ending. <br />
                                     Start Yours Now.
                                 </h1>
 
@@ -113,14 +107,17 @@ export default function Home() {
     return (
         <>
             <div className="bg-black">
-                <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+                <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-20 lg:max-w-7xl lg:px-8">
                     {/* <h2 className="sr-only">Products</h2> */}
 
                     <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                         {allAnimalsData?.map(
                             (data) =>
                                 data.rescueStatus == false && (
-                                    <div key={data._id} className="">
+                                    <div
+                                        key={data._id}
+                                        className="border-[1px]"
+                                    >
                                         <AnimalCard {...data} />
                                     </div>
                                 )

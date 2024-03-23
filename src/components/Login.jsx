@@ -30,7 +30,7 @@ function Login() {
             const session = await userLogin(data);
             if (session) {
                 console.log("session -> ", session);
-                dispatch(authLogin(JSON.stringify(session.data.user)));
+                dispatch(authLogin(session.data.user));
 
                 Cookies.set("accessToken", session.data.accessToken, {
                     expires: 7,
@@ -44,9 +44,9 @@ function Login() {
 
                 localStorage.setItem("accessToken", session.data.accessToken);
 
-                localStorage.setItem("userLogged", session.data.user);
+                // localStorage.setItem("userLogged", session.data.user);
                 localStorage.setItem("isLoggedIn", true);
-                // window.location.reload();
+                window.location.reload();
             }
         } catch (error) {
             setError(error.message);
