@@ -68,7 +68,6 @@ export const getCurrentUser = async () => {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
             },
-            withCredentials: true,
         });
         // const data = await response.json();
 

@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwindcss aspect-ratio
 
 .swiper {
     width: 100%;

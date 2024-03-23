@@ -11,6 +11,7 @@ import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import ServerHealthCheck from "./pages/ServerHealthCheck.jsx";
 import Profile from "./pages/Profile.jsx";
+import TestingPage from "./pages/TestingPage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,14 @@ const router = createBrowserRouter([
                 element: (
                     <AuthLayout authentication>
                         <Profile />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/testing",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <TestingPage />
                     </AuthLayout>
                 ),
             },

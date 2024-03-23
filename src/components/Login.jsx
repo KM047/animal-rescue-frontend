@@ -2,12 +2,14 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { SampleBtn, Input, Logo, Loading } from "./index";
 import { login as authLogin } from "../store/authSlice";
+import { setAnimal } from "../store/animalSlice";
 
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { getCurrentUser, userLogin } from "../api/userApi";
 import Cookies from "js-cookie";
+import { getAllAnimalsData } from "./../api/animalApi";
 
 function Login() {
     const navigate = useNavigate();
@@ -28,6 +30,7 @@ function Login() {
             const session = await userLogin(data);
             if (session) {
                 console.log("session -> ", session);
+                dispatch(authLogin(JSON.stringify(session.data.user)));
 
                 Cookies.set("accessToken", session.data.accessToken, {
                     expires: 7,
@@ -37,18 +40,11 @@ function Login() {
                 });
 
                 setError("Logged in successfully");
-                navigate("/server-health");
-                const userData = await getCurrentUser();
-
-                console.log("Logged user Data", userData);
-                if (userData) dispatch(authLogin(userData.data));
+                navigate("/");
 
                 localStorage.setItem("accessToken", session.data.accessToken);
 
-                localStorage.setItem(
-                    "userLogged",
-                    JSON.stringify(userData.data)
-                );
+                localStorage.setItem("userLogged", session.data.user);
                 localStorage.setItem("isLoggedIn", true);
                 // window.location.reload();
             }

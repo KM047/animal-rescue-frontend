@@ -7,28 +7,31 @@ import { Header } from "./components/index";
 import { Outlet } from "react-router-dom";
 
 import Loading from "./components/Loading";
-import { login, logout } from "./store/authSlice";
+import { login as authLogin, logout } from "./store/authSlice";
 import { getCurrentUser } from "./api/userApi";
+import { getAllAnimalsData } from "./api/animalApi";
+import { setAnimal } from "./store/animalSlice";
 
 function App() {
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
-    const [userData, setUserData] = useState(null);
+    // const [userData, setUserData] = useState(null);
 
     useEffect(() => {
-        const loggedInUser = localStorage.getItem("userLogged");
+        getCurrentUser().then((userData) => {
+            if (userData.data) {
+                console.log("userData.data is ", userData.data);
+                dispatch(authLogin(userData.data));
 
-        console.log("loggedInUser is ", loggedInUser);
-
-        if (loggedInUser) {
-            // const foundUser = JSON.parse(loggedInUser);
-            setUserData(loggedInUser);
-        }
-        if (userData) {
-            dispatch(login(userData));
-        } else {
-            dispatch(logout());
-        }
+                getAllAnimalsData().then((animalData) => {
+                    if (animalData.data) {
+                        dispatch(setAnimal(animalData.data));
+                    }
+                });
+            } else {
+                dispatch(logout());
+            }
+        });
     }, []);
 
     return (
