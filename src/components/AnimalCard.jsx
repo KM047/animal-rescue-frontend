@@ -13,14 +13,14 @@ function AnimalCard({ _id, animalPicture, animalType, createdAt }) {
     return (
         <>
             <Link to={`/animal/${_id}`}>
-                <div className=" w-full rounded-lg border-1 border-white">
+                <div className=" w-full ">
                     <img
                         src={animalPicture}
                         alt="Dog image"
-                        className="h-full w-full inline-block rounded-3xl"
+                        className="h-[300px] w-full object-contain rounded-3xl"
                     />
                 </div>
-                <h3 className="mt-4 text-lg text-white text-center">
+                <h3 className="mt-2 text-lg text-white text-center">
                     {animalType}
                 </h3>
                 <p className="mt-1 text-sm font-medium text-gray-600 text-center">

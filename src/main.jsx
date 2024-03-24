@@ -13,6 +13,7 @@ import ServerHealthCheck from "./pages/ServerHealthCheck.jsx";
 import Profile from "./pages/Profile.jsx";
 import TestingPage from "./pages/TestingPage.jsx";
 import MyQuery from "./pages/MyQuery.jsx";
+import AddQuery from "./pages/AddQuery.jsx";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +69,14 @@ const router = createBrowserRouter([
                 element: (
                     <AuthLayout authentication>
                         <MyQuery />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/add-query",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <AddQuery />
                     </AuthLayout>
                 ),
             },

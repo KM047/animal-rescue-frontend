@@ -41,7 +41,7 @@ function Header() {
         {
             name: "Add Query",
             slug: "/add-query",
-            active: authStatus,
+            active: !authStatus,
         },
         {
             name: "User Profile",
@@ -117,7 +117,7 @@ function Header() {
                                             onClick={() => setIsMenuOpen(false)}
                                             className={({ isActive }) =>
                                                 `block px-6 py-2 duration-200 text-[#a49d91] hover:text-white text-lg font-semibold ${
-                                                    isActive && "text-[#5fdcf2]"
+                                                    isActive && "text-cyan-300"
                                                 }`
                                             }
                                         >

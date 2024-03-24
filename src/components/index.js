@@ -14,6 +14,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
 import AnimalCard from "./AnimalCard";
+import UserAddQuery from "./UserAddQuery/UserAddQuery";
 
 export {
     Header,
@@ -32,4 +33,5 @@ export {
     Home,
     Profile,
     AnimalCard,
+    UserAddQuery,
 };
