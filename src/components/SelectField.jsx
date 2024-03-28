@@ -4,7 +4,11 @@ function SelectField({ options = [], label, className = "", ...props }, ref) {
     const id = useId();
     return (
         <div className="w-full">
-            {label && <label htmlFor={id} className=""></label>}
+            {label && (
+                <label htmlFor={id} className="mb-4 text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                    {label}
+                </label>
+            )}
             <select
                 {...props}
                 id={id}

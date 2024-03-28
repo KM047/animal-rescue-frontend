@@ -5,10 +5,13 @@ import Loading from "./Loading";
 
 export default function Protected({ children, authentication = true }) {
     const navigate = useNavigate();
-    const [loader, setLoader] = useState(true);
+    const [loader, setLoader] = useState(false);
     const authStatus = useSelector((state) => state.auth.status);
 
     useEffect(() => {
+        setLoader(true);
+        // const isLoggedIn = localStorage.getItem("isLoggedIn");
+
         if (authentication && authStatus !== authentication) {
             navigate("/login");
         } else if (!authentication && authStatus !== authentication) {

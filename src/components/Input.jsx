@@ -6,7 +6,7 @@ const Input = forwardRef(function Input(
 ) {
     const id = useId();
     return (
-        <div className="w-full md:w-50">
+        <div className="w-[80%] md:w-50">
             {label && (
                 <label
                     className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"

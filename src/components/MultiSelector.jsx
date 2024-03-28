@@ -3,9 +3,12 @@ import React, { forwardRef, useId } from "react";
 function MultiSelector({ options, label, className = "", ...props }, ref) {
     const id = useId();
     return (
-        <div className="w-full">
+        <div className="">
             {label && (
-                <label htmlFor={id} className="">
+                <label
+                    htmlFor={id}
+                    className=" mb-4 text-sm font-bold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
                     {label}
                 </label>
             )}

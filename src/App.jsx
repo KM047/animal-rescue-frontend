@@ -18,13 +18,15 @@ function App() {
     // const [userData, setUserData] = useState(null);
 
     useEffect(() => {
+        setLoading(true);
         getCurrentUser().then((userData) => {
             if (userData.data) {
-                console.log("userData.data is ", userData.data);
+                // console.log("userData.data is ", userData.data);
                 dispatch(authLogin(userData.data));
 
                 getAllAnimalsData().then((animalData) => {
                     if (animalData.data) {
+                        // console.log(animalData.data);
                         dispatch(setAnimal(animalData.data));
                     }
                 });
@@ -32,6 +34,8 @@ function App() {
                 dispatch(logout());
             }
         });
+
+        setLoading(false);
     }, []);
 
     return (

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../../api/userApi";
 import Cookies from "js-cookie";
 import { logout } from "../../store/authSlice";
+import { removeAllAnimals } from "../../store/animalSlice";
 
 function LogoutBtn() {
     const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function LogoutBtn() {
 
             console.log({ data });
             dispatch(logout());
+            dispatch(removeAllAnimals());
             navigate("/login");
             window.location.reload();
         } catch (error) {

@@ -62,7 +62,7 @@ export const getCurrentUser = async () => {
         const accessToken =
             Cookies.get("accessToken") || localStorage.getItem("accessToken");
 
-        console.log("Access token retrieved", accessToken);
+        // console.log("Access token retrieved", accessToken);
 
         const response = await axiosInstance.get("/users/current-user", {
             headers: {
@@ -99,6 +99,53 @@ export const logoutUser = async () => {
         return response.message;
     } catch (error) {
         console.error("Error updating user:", error);
+        throw error;
+    }
+};
+
+export const addAnimalData = async (animalData) => {
+    try {
+        const accessToken =
+            Cookies.get("accessToken") || localStorage.getItem("accessToken");
+        const response = await axiosInstance.post(
+            `/users/create-animal`,
+            animalData,
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            }
+        );
+
+        console.log("The res comes from the server:", response);
+        return response.data;
+    } catch (error) {
+        console.error("Error while adding the animal data :", error);
+        throw error;
+    }
+};
+
+export const updateUserAvatar = async (userData) => {
+    try {
+        const accessToken =
+            Cookies.get("accessToken") || localStorage.getItem("accessToken");
+        const response = await axiosInstance.patch(
+            "/users/change-avatar",
+            userData,
+            {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            }
+        );
+
+        console.log("response: ", response);
+
+        return response.data;
+    } catch (error) {
+        console.error("Error signup user:", error);
         throw error;
     }
 };

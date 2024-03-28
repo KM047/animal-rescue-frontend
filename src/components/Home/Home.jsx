@@ -15,28 +15,63 @@ import { Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import AnimalCard from "../AnimalCard";
+import { getAllAnimalsData, getAnimalData } from "./../../api/animalApi";
 
 export default function Home() {
     const user = useSelector((state) => state.auth.userData);
-    const allAnimalsData = useSelector((state) => state.animals.animalsData);
+    // const allAnimalsData = useSelector((state) => state.animals.animalsData);
 
-    console.log("allAnimalsData is", allAnimalsData);
+    const [allAnimalsData, setAllAnimalsData] = useState([]);
+
+    // console.log("renderData,", renderData);
+    // const [allAnimalsData, setAllAnimalsData] = useState([]);
+
+    // console.log("allAnimalsData is", allAnimalsData);
 
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     getCurrentUser().then((userData) => {
-    //         if (userData) {
-    //             console.log(" Data in home page", userData);
+    const [page, setPage] = useState(1);
 
-    //             dispatch(login(userData.data));
-    //         } else {
-    //             dispatch(logout());
-    //         }
-    //     });
-    // }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // console.log(page);
+                const response = await getAllAnimalsData(page);
 
-    console.log("Home page loaded", user);
+                // dispatch(addAnimal(response.data));
+
+                setAllAnimalsData((previousData) => [
+                    ...previousData,
+                    ...response.data,
+                ]);
+
+                // dispatch(setAnimal(response.data)); // Append new data to existing data
+                // console.log(response);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [page]); // Fetch data whenever the page changes
+
+    const handleScroll = () => {
+        if (
+            window.innerHeight + document.documentElement.scrollTop ==
+            document.documentElement.offsetHeight
+        ) {
+            // When scrolled to the bottom
+            setPage((prevPage) => prevPage + 1); // Load next page
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        // setRenderData(allAnimalsData);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []); // Add scroll event listener when component mounts
+
+    // console.log("Home page loaded", user);
 
     if (allAnimalsData?.length === 0) {
         return (
@@ -112,9 +147,12 @@ export default function Home() {
 
                     <div className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                         {allAnimalsData?.map(
-                            (data) =>
+                            (data, idx) =>
                                 data.rescueStatus == false && (
-                                    <div key={data._id} className="">
+                                    <div
+                                        key={`${data._id}-${idx}`}
+                                        className=""
+                                    >
                                         <AnimalCard {...data} />
                                     </div>
                                 )

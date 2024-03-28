@@ -10,12 +10,15 @@ export const getAnimalData = async (animalId) => {
     }
 };
 
-export const getAllAnimalsData = async () => {
+export const getAllAnimalsData = async (page = 1) => {
     try {
-        const response = await axiosInstance.get(`/animals/get-all-animals`);
+        // console.log(page);
+        const response = await axiosInstance.get(
+            `/animals/get-all-animals?page=${page}&limit=4`
+        );
         return response.data;
     } catch (error) {
-        console.error("Error updating user:", error);
+        console.error("Error getting the animals data:", error);
         throw error;
     }
 };

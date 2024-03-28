@@ -21,8 +21,12 @@ const animalSlice = createSlice({
                 (animal) => animal._id === action.payload.animal
             );
         },
+
+        removeAllAnimals: (state) => {
+            state.animalsData = [];
+        },
     },
 });
 
-export const { setAnimal, addAnimal, deleteAnimal } = animalSlice.actions;
+export const { setAnimal, addAnimal, deleteAnimal, removeAllAnimals } = animalSlice.actions;
 export default animalSlice.reducer;

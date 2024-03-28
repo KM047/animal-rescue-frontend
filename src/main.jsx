@@ -75,7 +75,7 @@ const router = createBrowserRouter([
             {
                 path: "/add-query",
                 element: (
-                    <AuthLayout authentication={false}>
+                    <AuthLayout authentication>
                         <AddQuery />
                     </AuthLayout>
                 ),

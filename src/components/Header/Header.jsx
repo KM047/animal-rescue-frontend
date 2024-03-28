@@ -41,7 +41,7 @@ function Header() {
         {
             name: "Add Query",
             slug: "/add-query",
-            active: !authStatus,
+            active: authStatus,
         },
         {
             name: "User Profile",
