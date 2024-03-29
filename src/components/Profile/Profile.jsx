@@ -1,12 +1,17 @@
 import React, { useState, Fragment, useRef } from "react";
-import { getCurrentUser, updateUserAvatar } from "./../../api/userApi";
-import { Link, useNavigate } from "react-router-dom";
+import {
+    getCurrentUser,
+    updateUserAvatar,
+    updateUserPassword,
+} from "./../../api/userApi";
+// import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Container from "./../Container/Container";
-import SampleBtn from "../SampleBtn";
+
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
 import Input from "../Input";
+import EditUserDetails from "../EditUserDetails";
+import { Link } from "react-router-dom";
 
 function Profile() {
     // const [userData, setUserData] = useState(null);
@@ -17,8 +22,10 @@ function Profile() {
         formState: { errors },
     } = useForm();
 
-    const cancelButtonRef = useRef(null);
+    const cancelButtonForA = useRef(null);
+
     const [open, setOpen] = useState(false);
+    const [error, setError] = useState("");
 
     const loggedInUser = useSelector((state) => state.auth.userData);
 
@@ -44,14 +51,14 @@ function Profile() {
         }
     };
 
-    if (open) {
-        return (
-            <>
+    return (
+        <>
+            {open && (
                 <Transition.Root show={open} as={Fragment}>
                     <Dialog
                         as="div"
                         className="relative z-10"
-                        initialFocus={cancelButtonRef}
+                        initialFocus={cancelButtonForA}
                         onClose={setOpen}
                     >
                         <Transition.Child
@@ -63,7 +70,7 @@ function Profile() {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                         >
-                            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 to-transparent transition-opacity" />
+                            <div className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
                         </Transition.Child>
 
                         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -77,7 +84,7 @@ function Profile() {
                                     leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                                     leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                                 >
-                                    <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                                    <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-center shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                                         <form
                                             onSubmit={handleSubmit(
                                                 updateAvatar
@@ -141,7 +148,7 @@ function Profile() {
                                                     onClick={() =>
                                                         setOpen(false)
                                                     }
-                                                    ref={cancelButtonRef}
+                                                    ref={cancelButtonForA}
                                                 >
                                                     Cancel
                                                 </button>
@@ -153,12 +160,8 @@ function Profile() {
                         </div>
                     </Dialog>
                 </Transition.Root>
-            </>
-        );
-    }
+            )}
 
-    return (
-        <>
             <div className="pt-4">
                 <div className="flex justify-between">
                     <img
@@ -167,10 +170,10 @@ function Profile() {
                         alt="Avatar"
                     />
 
-                    <div className="flex items-end">
+                    <div className="flex items-end ">
                         <button
-                            className="text-white "
-                            onClick={() => setOpen(true)}
+                            className="text-white font-semibold rounded-full border-2 border-[#7148FC] p-2"
+                            onClick={() => setOpen(!open)}
                         >
                             Edit Profile
                         </button>
@@ -213,7 +216,11 @@ function Profile() {
                             </div>
                             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-40 sm:px-0">
                                 <dt className="text-sm font-medium leading-6 ">
-                                    <Link to={""}>Change Password</Link>
+                                    <Link to={"/change-password"}>
+                                        <p className="text-blue-600 cursor-pointer">
+                                            Change Password
+                                        </p>
+                                    </Link>
                                 </dt>
                                 <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0"></dd>
                             </div>

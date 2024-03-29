@@ -32,26 +32,22 @@ export default function Home() {
 
     const [page, setPage] = useState(1);
 
+    const fetchData = async () => {
+        try {
+            const response = await getAllAnimalsData(page);
+
+            console.log(response.data);
+
+            setAllAnimalsData((previousData) => [
+                ...previousData,
+                ...response.data,
+            ]);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // console.log(page);
-                const response = await getAllAnimalsData(page);
-
-                // dispatch(addAnimal(response.data));
-
-                setAllAnimalsData((previousData) => [
-                    ...previousData,
-                    ...response.data,
-                ]);
-
-                // dispatch(setAnimal(response.data)); // Append new data to existing data
-                // console.log(response);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-
         fetchData();
     }, [page]); // Fetch data whenever the page changes
 
@@ -141,11 +137,11 @@ export default function Home() {
 
     return (
         <>
-            <div className="bg-black">
+            <div className="bg-black h-full">
                 <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-20 lg:max-w-7xl lg:px-8">
                     {/* <h2 className="sr-only">Products</h2> */}
 
-                    <div className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                    <div className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                         {allAnimalsData?.map(
                             (data, idx) =>
                                 data.rescueStatus == false && (

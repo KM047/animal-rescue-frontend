@@ -15,6 +15,8 @@ import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
 import AnimalCard from "./AnimalCard";
 import UserAddQuery from "./UserAddQuery/UserAddQuery";
+import ChangePassword from "./ChangePassword";
+import MyQuery from "./MyQuery/MyQuery";
 
 export {
     Header,
@@ -34,4 +36,6 @@ export {
     Profile,
     AnimalCard,
     UserAddQuery,
+    ChangePassword,
+    MyQuery,
 };

@@ -14,6 +14,7 @@ import Profile from "./pages/Profile.jsx";
 import TestingPage from "./pages/TestingPage.jsx";
 import MyQuery from "./pages/MyQuery.jsx";
 import AddQuery from "./pages/AddQuery.jsx";
+import ChangePassword from "./pages/ChangePassword.jsx";
 
 const router = createBrowserRouter([
     {
@@ -77,6 +78,14 @@ const router = createBrowserRouter([
                 element: (
                     <AuthLayout authentication>
                         <AddQuery />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/change-password",
+                element: (
+                    <AuthLayout authentication>
+                        <ChangePassword />
                     </AuthLayout>
                 ),
             },

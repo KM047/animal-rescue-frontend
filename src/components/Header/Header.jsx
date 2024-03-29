@@ -28,11 +28,7 @@ function Header() {
             slug: "/signup",
             active: !authStatus,
         },
-        {
-            name: "All Query",
-            slug: "/all-query",
-            active: authStatus,
-        },
+
         {
             name: "My Queries",
             slug: "/my-queries",

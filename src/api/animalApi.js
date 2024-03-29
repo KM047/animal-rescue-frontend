@@ -14,7 +14,7 @@ export const getAllAnimalsData = async (page = 1) => {
     try {
         // console.log(page);
         const response = await axiosInstance.get(
-            `/animals/get-all-animals?page=${page}&limit=4`
+            `/animals/get-all-animals?page=${page}`
         );
         return response.data;
     } catch (error) {

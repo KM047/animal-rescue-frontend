@@ -149,3 +149,27 @@ export const updateUserAvatar = async (userData) => {
         throw error;
     }
 };
+export const updateUserPassword = async (userData) => {
+    try {
+        const accessToken =
+            Cookies.get("accessToken") || localStorage.getItem("accessToken");
+        const response = await axiosInstance.patch(
+            "/users/change-password",
+            userData,
+            {
+                headers: {
+                    // "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${accessToken}`,
+                },
+                // withCredentials: true,
+            }
+        );
+
+        console.log("response: ", response);
+
+        return response.data;
+    } catch (error) {
+        console.error("Error signup user:", error);
+        throw error;
+    }
+};
