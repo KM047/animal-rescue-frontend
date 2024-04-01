@@ -17,6 +17,8 @@ import AnimalCard from "./AnimalCard";
 import UserAddQuery from "./UserAddQuery/UserAddQuery";
 import ChangePassword from "./ChangePassword";
 import MyQuery from "./MyQuery/MyQuery";
+import AnimalDetail from "./AnimalDetail/AnimalDetail";
+import NotFound from "./NotFound";
 
 export {
     Header,
@@ -38,4 +40,6 @@ export {
     UserAddQuery,
     ChangePassword,
     MyQuery,
+    AnimalDetail,
+    NotFound,
 };

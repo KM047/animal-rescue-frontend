@@ -12,8 +12,8 @@ function AnimalCard({ _id, animalPicture, animalType, createdAt }) {
 
     return (
         <>
-            <Link to={`/animal/${_id}`}>
-                <div className=" w-full ">
+            <Link to={`/animal-info/${_id}`}>
+                <div className=" w-full  ">
                     <img
                         src={animalPicture}
                         alt="Dog image"

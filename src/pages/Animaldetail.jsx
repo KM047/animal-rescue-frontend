@@ -1,7 +1,8 @@
 import React from "react";
+import { AnimalDetail as AnimalD } from "../components";
 
-function Animaldetail() {
-    return <div>Animaldetail</div>;
+function AnimalDetail() {
+    return <AnimalD />;
 }
 
-export default Animaldetail;
+export default AnimalDetail;

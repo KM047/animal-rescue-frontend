@@ -15,6 +15,7 @@ import TestingPage from "./pages/TestingPage.jsx";
 import MyQuery from "./pages/MyQuery.jsx";
 import AddQuery from "./pages/AddQuery.jsx";
 import ChangePassword from "./pages/ChangePassword.jsx";
+import AnimalDetail from "./pages/AnimalDetail";
 
 const router = createBrowserRouter([
     {
@@ -86,6 +87,14 @@ const router = createBrowserRouter([
                 element: (
                     <AuthLayout authentication>
                         <ChangePassword />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/animal-info/:animalId",
+                element: (
+                    <AuthLayout authentication>
+                        <AnimalDetail />
                     </AuthLayout>
                 ),
             },

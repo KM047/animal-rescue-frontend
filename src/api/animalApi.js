@@ -2,8 +2,10 @@ import axiosInstance from "../utils/axiosInstance";
 
 export const getAnimalData = async (animalId) => {
     try {
-        const response = await axiosInstance.get(`/animals/:${animalId}`);
-        return response;
+        const response = await axiosInstance.get(
+            `/animals/animal-info/${animalId}`
+        );
+        return response.data;
     } catch (error) {
         console.error("Error getting animal data:", error);
         throw error;
