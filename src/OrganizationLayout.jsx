@@ -12,7 +12,7 @@ import { getCurrentUser } from "./api/userApi";
 import { getAllAnimalsData } from "./api/animalApi";
 import { setAnimal } from "./store/animalSlice";
 
-function App() {
+function OrganizationLayout() {
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
     // const [userData, setUserData] = useState(null);
@@ -41,9 +41,9 @@ function App() {
     return (
         <div className=" min-h-screen flex flex-wrap content-between bg-[#000000]">
             <div className="w-full block">
-                <Header />
+                <Header  />
                 {!loading ? (
-                    <main className="min-h-[700px]">
+                    <main className="min-h-[300px]">
                         <Outlet />
                     </main>
                 ) : (
@@ -55,4 +55,4 @@ function App() {
     );
 }
 
-export default App;
+export default OrganizationLayout;

@@ -19,6 +19,7 @@ import ChangePassword from "./ChangePassword";
 import MyQuery from "./MyQuery/MyQuery";
 import AnimalDetail from "./AnimalDetail/AnimalDetail";
 import NotFound from "./NotFound";
+import SignPageChoice from "./SignPageChoice";
 
 export {
     Header,
@@ -42,4 +43,5 @@ export {
     MyQuery,
     AnimalDetail,
     NotFound,
+    SignPageChoice,
 };

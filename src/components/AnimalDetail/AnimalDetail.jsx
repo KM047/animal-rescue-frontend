@@ -51,7 +51,9 @@ function AnimalDetail() {
         window.open(url, "_blank");
     };
 
-    return animalInfo != null ? (
+    return loading ? (
+        <Loading />
+    ) : animalInfo != null ? (
         <div className="py-8">
             <Container>
                 <div className="w-full flex justify-center mb-4 relative rounded-xl p-2">

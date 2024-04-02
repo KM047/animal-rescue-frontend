@@ -16,6 +16,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import AnimalCard from "../AnimalCard";
 import { getAllAnimalsData, getAnimalData } from "./../../api/animalApi";
+import Loading from "./../Loading";
+import { addAnimal, setAnimal } from "../../store/animalSlice";
 
 export default function Home() {
     const user = useSelector((state) => state.auth.userData);
@@ -23,27 +25,40 @@ export default function Home() {
 
     const [allAnimalsData, setAllAnimalsData] = useState([]);
 
-    // console.log("renderData,", renderData);
-    // const [allAnimalsData, setAllAnimalsData] = useState([]);
-
-    // console.log("allAnimalsData is", allAnimalsData);
+    console.log("allAnimalsData is", allAnimalsData);
 
     const dispatch = useDispatch();
 
     const [page, setPage] = useState(1);
+    const [loading, setLoading] = useState(false);
+    const [isDBEmpty, setIsDBEmpty] = useState(false);
 
     const fetchData = async () => {
         try {
-            const response = await getAllAnimalsData(page);
+            if (!isDBEmpty) {
+                setLoading(true);
+                // console.log("loading", loading);
+                const response = await getAllAnimalsData(page);
 
-            console.log(response.data);
+                // console.log(response);
 
-            setAllAnimalsData((previousData) => [
-                ...previousData,
-                ...response.data,
-            ]);
+                console.log(response.data);
+
+                dispatch(
+                    setAllAnimalsData((previousData) => [
+                        ...previousData,
+                        ...response.data,
+                    ])
+                );
+            }
         } catch (error) {
             console.error("Error fetching data:", error);
+            if (error.response.status == 404) {
+                setIsDBEmpty(true);
+                // console.log(error.response.status);
+            }
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -142,18 +157,17 @@ export default function Home() {
                     {/* <h2 className="sr-only">Products</h2> */}
 
                     <div className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                        {allAnimalsData?.map(
-                            (data, idx) =>
-                                data.rescueStatus == false && (
-                                    <div
-                                        key={`${data._id}-${idx}`}
-                                        className=""
-                                    >
-                                        <AnimalCard {...data} />
-                                    </div>
-                                )
+                        {allAnimalsData?.map((data, idx) =>
+                            data.rescueStatus == false ? (
+                                <div key={`${data._id}-${idx}`} className="">
+                                    <AnimalCard {...data} />
+                                </div>
+                            ) : null
                         )}
                     </div>
+                    {loading && (
+                        <div className="text-white text-cen">Loading...</div>
+                    )}
                 </div>
             </div>
         </>

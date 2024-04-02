@@ -17,6 +17,259 @@ import AddQuery from "./pages/AddQuery.jsx";
 import ChangePassword from "./pages/ChangePassword.jsx";
 import AnimalDetail from "./pages/AnimalDetail";
 
+const userRoutes = [
+    {
+        path: "/user",
+        element: <App />,
+        children: [
+            {
+                path: "/",
+                element: <Home />,
+            },
+            {
+                path: "/server-health",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <ServerHealthCheck />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/login",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <Login />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/signup",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <Signup />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/profile",
+                element: (
+                    <AuthLayout authentication>
+                        <Profile />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/testing",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <TestingPage />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/my-queries",
+                element: (
+                    <AuthLayout authentication>
+                        <MyQuery />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/add-query",
+                element: (
+                    <AuthLayout authentication>
+                        <AddQuery />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/change-password",
+                element: (
+                    <AuthLayout authentication>
+                        <ChangePassword />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/animal-info/:animalId",
+                element: (
+                    <AuthLayout authentication>
+                        <AnimalDetail />
+                    </AuthLayout>
+                ),
+            },
+        ],
+    },
+];
+const orgRoutes = [
+    {
+        path: "/org",
+        element: <App />,
+        children: [
+            {
+                path: "/",
+                element: <Home />,
+            },
+            {
+                path: "/server-health",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <ServerHealthCheck />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/login",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <Login />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/signup",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <Signup />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/profile",
+                element: (
+                    <AuthLayout authentication>
+                        <Profile />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/testing",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <TestingPage />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/my-queries",
+                element: (
+                    <AuthLayout authentication>
+                        <MyQuery />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/add-query",
+                element: (
+                    <AuthLayout authentication>
+                        <AddQuery />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/change-password",
+                element: (
+                    <AuthLayout authentication>
+                        <ChangePassword />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/animal-info/:animalId",
+                element: (
+                    <AuthLayout authentication>
+                        <AnimalDetail />
+                    </AuthLayout>
+                ),
+            },
+        ],
+    },
+];
+const rescuerRoutes = [
+    {
+        path: "/rescuer",
+        element: <App />,
+        children: [
+            {
+                path: "/",
+                element: <Home />,
+            },
+            {
+                path: "/server-health",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <ServerHealthCheck />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/login",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <Login />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/signup",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <Signup />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/profile",
+                element: (
+                    <AuthLayout authentication>
+                        <Profile />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/testing",
+                element: (
+                    <AuthLayout authentication={false}>
+                        <TestingPage />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/my-queries",
+                element: (
+                    <AuthLayout authentication>
+                        <MyQuery />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/add-query",
+                element: (
+                    <AuthLayout authentication>
+                        <AddQuery />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/change-password",
+                element: (
+                    <AuthLayout authentication>
+                        <ChangePassword />
+                    </AuthLayout>
+                ),
+            },
+            {
+                path: "/animal-info/:animalId",
+                element: (
+                    <AuthLayout authentication>
+                        <AnimalDetail />
+                    </AuthLayout>
+                ),
+            },
+        ],
+    },
+];
+
 const router = createBrowserRouter([
     {
         path: "/",

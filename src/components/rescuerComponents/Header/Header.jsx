@@ -1,4 +1,4 @@
-import { Container, Logo, LogoutBtn } from "../index";
+import { Container, Logo, LogoutBtn } from "../../index";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
@@ -15,39 +15,20 @@ function Header() {
             roll: "er",
         },
         {
-            name: "Server Health",
-            slug: "/server-health",
-            active: !authStatus,
-            roll: "ere",
-        },
-        {
-            name: "Login",
-            slug: "/login",
-            active: !authStatus,
-            roll: "user",
-        },
-        {
-            name: "Signup",
-            slug: "/signup",
-            active: !authStatus,
-            roll: "ere",
-        },
-
-        {
-            name: "My Queries",
-            slug: "/my-queries",
+            name: "Saved Animals",
+            slug: "/saved-animals",
             active: authStatus,
             roll: "user",
         },
         {
-            name: "Add Query",
-            slug: "/add-query",
+            name: "Add animals",
+            slug: "/add-animals",
             active: authStatus,
             roll: "user",
         },
         {
-            name: "User Profile",
-            slug: "/profile",
+            name: "Rescuer Profile",
+            slug: "/rescuer-profile",
             active: authStatus,
             roll: "ere",
         },
