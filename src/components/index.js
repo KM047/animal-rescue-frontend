@@ -1,5 +1,4 @@
 import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
 import Login from "./Login";
 import SelectField from "./SelectField";
 import Loading from "./Loading";
@@ -23,7 +22,6 @@ import SignPageChoice from "./SignPageChoice";
 
 export {
     Header,
-    Footer,
     Loading,
     SampleBtn,
     Login,

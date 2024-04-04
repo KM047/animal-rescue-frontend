@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 // import { login, logout } from "./store/authSlice";
-import { Header } from "./components/index";
+import { Header } from "./components/orgComponents/index";
 
 import { Outlet } from "react-router-dom";
 
@@ -41,7 +41,7 @@ function OrganizationLayout() {
     return (
         <div className=" min-h-screen flex flex-wrap content-between bg-[#000000]">
             <div className="w-full block">
-                <Header  />
+                <Header />
                 {!loading ? (
                     <main className="min-h-[300px]">
                         <Outlet />
