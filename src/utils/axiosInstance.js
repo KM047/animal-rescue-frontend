@@ -13,6 +13,4 @@ const axiosInstance = axios.create({
     },
 });
 
-console.log(config.severURL);
-
 export default axiosInstance;
