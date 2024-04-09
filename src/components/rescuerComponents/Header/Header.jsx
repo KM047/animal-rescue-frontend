@@ -1,36 +1,33 @@
-import { Container, Logo, LogoutBtn } from "../../index";
+import { Container, Logo } from "../../index";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import LogoutBtn from "./LogoutBtn";
 
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const authStatus = useSelector((state) => state.auth.status);
+    const authStatus = useSelector((state) => state.rescuerAuth.rescuerData);
     const navItems = [
         {
             name: "Home",
-            slug: "/",
+            slug: "/rescuer",
             active: true,
-            roll: "er",
+        },
+        {
+            name: "Login",
+            slug: "/rescuer/login",
+            active: !authStatus,
         },
         {
             name: "Saved Animals",
-            slug: "/saved-animals",
+            slug: "/rescuer/rescued-animals",
             active: authStatus,
-            roll: "user",
-        },
-        {
-            name: "Add animals",
-            slug: "/add-animals",
-            active: authStatus,
-            roll: "user",
         },
         {
             name: "Rescuer Profile",
-            slug: "/rescuer-profile",
+            slug: "/rescuer/profile",
             active: authStatus,
-            roll: "ere",
         },
     ];
 

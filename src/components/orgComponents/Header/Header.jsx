@@ -1,36 +1,43 @@
-import { Container, Logo, LogoutBtn } from "../../index";
+import { Container, Logo } from "../../index";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import LogoutBtn from "./LogoutBtn";
 
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const authStatus = useSelector((state) => state.auth.status);
+    const authStatus = useSelector((state) => state.orgAuth.status);
     const navItems = [
         {
             name: "Home",
-            slug: "/",
+            slug: "/org",
             active: true,
-            roll: "er",
         },
         {
             name: "Saved Animals",
-            slug: "/saved-animals",
+            slug: "/org/rescued-animals",
             active: authStatus,
-            roll: "user",
+        },
+        {
+            name: "Signup",
+            slug: "/org/signup",
+            active: !authStatus,
+        },
+        {
+            name: "Login",
+            slug: "/org/login",
+            active: !authStatus,
         },
         {
             name: "Add Rescuer",
-            slug: "/add-rescuer",
+            slug: "/org/add-rescuer",
             active: authStatus,
-            roll: "user",
         },
         {
             name: "Organization Profile",
-            slug: "/org-profile",
+            slug: "/org/profile",
             active: authStatus,
-            roll: "ere",
         },
     ];
 
@@ -39,7 +46,7 @@ function Header() {
             <Container>
                 <nav className="flex items-center justify-between relative">
                     <div className="mr-4">
-                        <Link to="/">
+                        <Link to="/org">
                             <Logo width="70px" />
                         </Link>
                     </div>

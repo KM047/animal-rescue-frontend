@@ -9,266 +9,29 @@ import { AuthLayout } from "./components/index.js";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
-import ServerHealthCheck from "./pages/ServerHealthCheck.jsx";
 import Profile from "./pages/Profile.jsx";
-import TestingPage from "./pages/TestingPage.jsx";
 import MyQuery from "./pages/MyQuery.jsx";
 import AddQuery from "./pages/AddQuery.jsx";
 import ChangePassword from "./pages/ChangePassword.jsx";
-import AnimalDetail from "./pages/AnimalDetail";
-
-const userRoutes = [
-    {
-        path: "/user",
-        element: <App />,
-        children: [
-            {
-                path: "/",
-                element: <Home />,
-            },
-            {
-                path: "/server-health",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <ServerHealthCheck />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/login",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <Login />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/signup",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <Signup />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/profile",
-                element: (
-                    <AuthLayout authentication>
-                        <Profile />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/testing",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <TestingPage />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/my-queries",
-                element: (
-                    <AuthLayout authentication>
-                        <MyQuery />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/add-query",
-                element: (
-                    <AuthLayout authentication>
-                        <AddQuery />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/change-password",
-                element: (
-                    <AuthLayout authentication>
-                        <ChangePassword />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/animal-info/:animalId",
-                element: (
-                    <AuthLayout authentication>
-                        <AnimalDetail />
-                    </AuthLayout>
-                ),
-            },
-        ],
-    },
-];
-const orgRoutes = [
-    {
-        path: "/org",
-        element: <App />,
-        children: [
-            {
-                path: "/",
-                element: <Home />,
-            },
-            {
-                path: "/server-health",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <ServerHealthCheck />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/login",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <Login />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/signup",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <Signup />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/profile",
-                element: (
-                    <AuthLayout authentication>
-                        <Profile />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/testing",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <TestingPage />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/my-queries",
-                element: (
-                    <AuthLayout authentication>
-                        <MyQuery />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/add-query",
-                element: (
-                    <AuthLayout authentication>
-                        <AddQuery />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/change-password",
-                element: (
-                    <AuthLayout authentication>
-                        <ChangePassword />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/animal-info/:animalId",
-                element: (
-                    <AuthLayout authentication>
-                        <AnimalDetail />
-                    </AuthLayout>
-                ),
-            },
-        ],
-    },
-];
-const rescuerRoutes = [
-    {
-        path: "/rescuer",
-        element: <App />,
-        children: [
-            {
-                path: "/",
-                element: <Home />,
-            },
-            {
-                path: "/server-health",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <ServerHealthCheck />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/login",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <Login />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/signup",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <Signup />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/profile",
-                element: (
-                    <AuthLayout authentication>
-                        <Profile />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/testing",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <TestingPage />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/my-queries",
-                element: (
-                    <AuthLayout authentication>
-                        <MyQuery />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/add-query",
-                element: (
-                    <AuthLayout authentication>
-                        <AddQuery />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/change-password",
-                element: (
-                    <AuthLayout authentication>
-                        <ChangePassword />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/animal-info/:animalId",
-                element: (
-                    <AuthLayout authentication>
-                        <AnimalDetail />
-                    </AuthLayout>
-                ),
-            },
-        ],
-    },
-];
+import AnimalDetail from "./pages/AnimalDetail.jsx";
+import RescuerLayout from "./RescuerLayout.jsx";
+import OrganizationLayout from "./OrganizationLayout.jsx";
+import OrgHome from "./pages/orgPages/Home.jsx";
+import { AuthLayoutForOrg } from "./components/orgComponents/index.js";
+import { AuthLayoutForRes } from "./components/rescuerComponents/index.js";
+import SignPageChoice from "./pages/SignPageChoice.jsx";
+import OrgLogin from "./pages/orgPages/Login";
+import OrgSignup from "./pages/orgPages/Signup";
+import AddRescuers from "./pages/orgPages/AddRescuers";
+import OrgProfile from "./pages/orgPages/Profile";
+import OrgChangePassword from "./pages/orgPages/ChangePasswordForOrg.jsx";
+import ResLogin from "./pages/rescuerPages/Login";
+import ResProfile from "./pages/rescuerPages/Profile";
+import AddedAnimals from "./pages/rescuerPages/AddedAnimals.jsx";
+import ResAnimalDetail from "./pages/rescuerPages/AnimalDetail";
+import ResHome from "./pages/rescuerPages/Home";
+import RescuedAnimal from "./pages/orgPages/RescuedAnimal";
+import ChangePasswordForRes from "./pages/rescuerPages/ChangePasswordForRes.jsx";
 
 const router = createBrowserRouter([
     {
@@ -280,15 +43,25 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "/server-health",
+                path: "/choose-user",
                 element: (
                     <AuthLayout authentication={false}>
-                        <ServerHealthCheck />
+                        <SignPageChoice />
                     </AuthLayout>
                 ),
             },
+        ],
+    },
+    {
+        path: "/user",
+        element: <App />,
+        children: [
             {
-                path: "/login",
+                path: "",
+                element: <Home />,
+            },
+            {
+                path: "login",
                 element: (
                     <AuthLayout authentication={false}>
                         <Login />
@@ -296,7 +69,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/signup",
+                path: "signup",
                 element: (
                     <AuthLayout authentication={false}>
                         <Signup />
@@ -304,7 +77,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/profile",
+                path: "profile",
                 element: (
                     <AuthLayout authentication>
                         <Profile />
@@ -312,15 +85,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/testing",
-                element: (
-                    <AuthLayout authentication={false}>
-                        <TestingPage />
-                    </AuthLayout>
-                ),
-            },
-            {
-                path: "/my-queries",
+                path: "my-queries",
                 element: (
                     <AuthLayout authentication>
                         <MyQuery />
@@ -328,7 +93,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/add-query",
+                path: "add-query",
                 element: (
                     <AuthLayout authentication>
                         <AddQuery />
@@ -336,7 +101,7 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/change-password",
+                path: "change-password",
                 element: (
                     <AuthLayout authentication>
                         <ChangePassword />
@@ -344,11 +109,122 @@ const router = createBrowserRouter([
                 ),
             },
             {
-                path: "/animal-info/:animalId",
+                path: "animal-info/:animalId",
                 element: (
                     <AuthLayout authentication>
                         <AnimalDetail />
                     </AuthLayout>
+                ),
+            },
+        ],
+    },
+    {
+        path: "/org",
+        element: <OrganizationLayout />,
+        children: [
+            {
+                path: "/org",
+                element: <OrgHome />,
+            },
+            {
+                path: "login",
+                element: (
+                    <AuthLayoutForOrg authentication={false}>
+                        <OrgLogin />
+                    </AuthLayoutForOrg>
+                ),
+            },
+            {
+                path: "signup",
+                element: (
+                    <AuthLayoutForOrg authentication={false}>
+                        <OrgSignup />
+                    </AuthLayoutForOrg>
+                ),
+            },
+
+            {
+                path: "profile",
+                element: (
+                    <AuthLayoutForOrg authentication>
+                        <OrgProfile />
+                    </AuthLayoutForOrg>
+                ),
+            },
+            {
+                path: "add-rescuer",
+                element: (
+                    <AuthLayoutForOrg authentication>
+                        <AddRescuers />
+                    </AuthLayoutForOrg>
+                ),
+            },
+            {
+                path: "change-password",
+                element: (
+                    <AuthLayoutForOrg authentication>
+                        <OrgChangePassword />
+                    </AuthLayoutForOrg>
+                ),
+            },
+            {
+                path: "rescued-animals",
+                element: (
+                    <AuthLayoutForOrg authentication>
+                        <RescuedAnimal />
+                    </AuthLayoutForOrg>
+                ),
+            },
+        ],
+    },
+    {
+        path: "/rescuer",
+        element: <RescuerLayout />,
+        children: [
+            {
+                path: "",
+                element: <ResHome />,
+            },
+
+            {
+                path: "login",
+                element: (
+                    <AuthLayoutForRes authentication={false}>
+                        <ResLogin />
+                    </AuthLayoutForRes>
+                ),
+            },
+
+            {
+                path: "profile",
+                element: (
+                    <AuthLayoutForRes authentication>
+                        <ResProfile />
+                    </AuthLayoutForRes>
+                ),
+            },
+            {
+                path: "rescued-animals",
+                element: (
+                    <AuthLayoutForRes authentication>
+                        <AddedAnimals />
+                    </AuthLayoutForRes>
+                ),
+            },
+            {
+                path: "change-password",
+                element: (
+                    <AuthLayoutForRes authentication>
+                        <ChangePasswordForRes />
+                    </AuthLayoutForRes>
+                ),
+            },
+            {
+                path: "animal-info/:animalId",
+                element: (
+                    <AuthLayoutForRes authentication>
+                        <ResAnimalDetail />
+                    </AuthLayoutForRes>
                 ),
             },
         ],

@@ -9,7 +9,6 @@ import Input from "./Input";
 import AuthLayout from "./AuthLayout";
 import LogoutBtn from "./Header/LogoutBtn";
 import Container from "./Container/Container";
-import Dashboard from "./Dashboard/Dashboard";
 import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
 import AnimalCard from "./AnimalCard";
@@ -19,6 +18,7 @@ import MyQuery from "./MyQuery/MyQuery";
 import AnimalDetail from "./AnimalDetail/AnimalDetail";
 import NotFound from "./NotFound";
 import SignPageChoice from "./SignPageChoice";
+import TitleSetter from "./TitleSetter";
 
 export {
     Header,
@@ -32,7 +32,6 @@ export {
     AuthLayout,
     LogoutBtn,
     Container,
-    Dashboard,
     Home,
     Profile,
     AnimalCard,
@@ -42,4 +41,5 @@ export {
     AnimalDetail,
     NotFound,
     SignPageChoice,
+    TitleSetter,
 };

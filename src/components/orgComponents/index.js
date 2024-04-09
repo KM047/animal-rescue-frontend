@@ -6,6 +6,7 @@ import RescuedAnimals from "./rescued/RescuedAnimals";
 import LoginForOrg from "./LoginForOrg";
 import SignupForOrg from "./SignupForOrg";
 import AuthLayoutForOrg from "./AuthLayoutForOrg";
+import ChangePassword from "./ChangePassword";
 
 export {
     Header,
@@ -16,4 +17,5 @@ export {
     LoginForOrg,
     SignupForOrg,
     AuthLayoutForOrg,
+    ChangePassword,
 };

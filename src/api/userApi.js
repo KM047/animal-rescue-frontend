@@ -22,7 +22,7 @@ export const userSignup = async (userData) => {
             },
         });
 
-        console.log("response: ", response);
+        // console.log("response: ", response);
 
         return response.data;
     } catch (error) {
@@ -95,7 +95,7 @@ export const logoutUser = async () => {
             }
         );
         // const data = await response.json();
-        console.log("response from logout:", response);
+        // console.log("response from logout:", response);
         return response.message;
     } catch (error) {
         console.error("Error updating user:", error);
@@ -118,7 +118,7 @@ export const addAnimalData = async (animalData) => {
             }
         );
 
-        console.log("The res comes from the server:", response);
+        // console.log("The res comes from the server:", response);
         return response.data;
     } catch (error) {
         console.error("Error while adding the animal data :", error);
@@ -141,7 +141,7 @@ export const updateUserAvatar = async (userData) => {
             }
         );
 
-        console.log("response: ", response);
+        // console.log("response: ", response);
 
         return response.data;
     } catch (error) {
@@ -149,6 +149,7 @@ export const updateUserAvatar = async (userData) => {
         throw error;
     }
 };
+
 export const updateUserPassword = async (userData) => {
     try {
         const accessToken =
@@ -165,7 +166,7 @@ export const updateUserPassword = async (userData) => {
             }
         );
 
-        console.log("response: ", response);
+        // console.log("response: ", response);
 
         return response.data;
     } catch (error) {

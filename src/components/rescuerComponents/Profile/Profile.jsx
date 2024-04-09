@@ -3,15 +3,17 @@ import {
     getCurrentUser,
     updateUserAvatar,
     updateUserPassword,
-} from "./../../api/userApi";
+} from "../../../api/userApi";
 // import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
-import Input from "../Input";
-import EditUserDetails from "../EditUserDetails";
+import Input from "../../Input";
 import { Link } from "react-router-dom";
+import { updateResAvatar } from "../../../api/rescuerApi";
+import { login as authLogin } from "../../../store/rescuerAuthSlice";
 
 function Profile() {
     // const [userData, setUserData] = useState(null);
@@ -27,21 +29,27 @@ function Profile() {
     const [open, setOpen] = useState(false);
     const [error, setError] = useState("");
 
-    const loggedInUser = useSelector((state) => state.auth.userData);
+    // const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    // console.log("loggedInUser is", loggedInUser);
+    const loggedInRescuer = useSelector(
+        (state) => state.rescuerAuth.rescuerData
+    );
+
+    // console.log("loggedInRescuer is", loggedInRescuer);
 
     const updateAvatar = async (data) => {
         const formData = new FormData();
-        console.log(data);
+        // console.log(data);
 
         try {
             formData.append("avatar", data?.avatar[0]);
 
-            const response = await updateUserAvatar(formData);
+            const response = await updateResAvatar(formData);
 
             if (response) {
-                console.log(response);
+                // console.log(response);
+                dispatch(authLogin(response.data));
             }
         } catch (error) {
             console.log(error.message);
@@ -166,7 +174,7 @@ function Profile() {
                 <div className="flex justify-between">
                     <img
                         className="object-cover h-36 w-36 rounded-full bg-white sm"
-                        src={loggedInUser?.avatar}
+                        src={loggedInRescuer?.avatar}
                         alt="Avatar"
                     />
 
@@ -187,15 +195,7 @@ function Profile() {
                                     Full name
                                 </dt>
                                 <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
-                                    {loggedInUser?.fullName}
-                                </dd>
-                            </div>
-                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-40 sm:px-0">
-                                <dt className="text-sm font-medium leading-6">
-                                    Username
-                                </dt>
-                                <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
-                                    {loggedInUser?.username}
+                                    {loggedInRescuer?.fullName}
                                 </dd>
                             </div>
                             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-40 sm:px-0">
@@ -203,7 +203,7 @@ function Profile() {
                                     Email address
                                 </dt>
                                 <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
-                                    {loggedInUser?.email}
+                                    {loggedInRescuer?.email}
                                 </dd>
                             </div>
                             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-40 sm:px-0">
@@ -211,12 +211,12 @@ function Profile() {
                                     Phone number
                                 </dt>
                                 <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
-                                    {loggedInUser?.phoneNumber}
+                                    {loggedInRescuer?.phoneNumber}
                                 </dd>
                             </div>
                             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-40 sm:px-0">
                                 <dt className="text-sm font-medium leading-6 ">
-                                    <Link to={"/change-password"}>
+                                    <Link to={"/rescuer/change-password"}>
                                         <p className="text-blue-600 cursor-pointer">
                                             Change Password
                                         </p>

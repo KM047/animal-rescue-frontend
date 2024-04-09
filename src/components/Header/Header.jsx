@@ -12,52 +12,35 @@ function Header() {
             name: "Home",
             slug: "/",
             active: true,
-            roll: "er",
         },
         {
-            name: "Server Health",
-            slug: "/server-health",
+            name: "Choose User",
+            slug: "/choose-user",
             active: !authStatus,
-            roll: "ere",
-        },
-        {
-            name: "Login",
-            slug: "/login",
-            active: !authStatus,
-            roll: "user",
-        },
-        {
-            name: "Signup",
-            slug: "/signup",
-            active: !authStatus,
-            roll: "ere",
         },
 
         {
             name: "My Queries",
-            slug: "/my-queries",
+            slug: "/user/my-queries",
             active: authStatus,
-            roll: "user",
         },
         {
             name: "Add Query",
-            slug: "/add-query",
+            slug: "/user/add-query",
             active: authStatus,
-            roll: "user",
         },
         {
             name: "User Profile",
-            slug: "/profile",
+            slug: "/user/profile",
             active: authStatus,
-            roll: "ere",
         },
     ];
 
     return (
-        <header className="py-2 text-white">
+        <header className="py-2 text-white h-[10%">
             <Container>
                 <nav className="flex items-center justify-between relative">
-                    <div className="mr-4">
+                    <div className="mr-4 p-1 rounded-lg border-cyan-300 border">
                         <Link to="/">
                             <Logo width="70px" />
                         </Link>

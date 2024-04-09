@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Loading from "./Loading";
+import Loading from "./../Loading";
 
 export default function Protected({ children, authentication = true }) {
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function Protected({ children, authentication = true }) {
         if (authentication && authStatus !== authentication) {
             navigate("/org/login");
         } else if (!authentication && authStatus !== authentication) {
-            navigate("/org/profile");
+            navigate("/org");
         }
         setLoader(false);
     }, [authStatus, navigate, authentication]);

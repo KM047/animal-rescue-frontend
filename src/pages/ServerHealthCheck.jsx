@@ -11,14 +11,11 @@ function ServerHealthCheck() {
         try {
             setLoading(true);
             const lem = Cookies.get("refreshToken");
-            console.log(lem);
             const response = await getServerHealth();
             // const data = await response.json();
-            console.log("response -> ", response);
 
             if (response.statusCode) {
                 // const data = await response.json();
-                console.log("This will set to ", response.statusCode);
                 setHealthStatus(response.statusCode);
             } else {
                 console.error(

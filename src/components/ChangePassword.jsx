@@ -24,9 +24,9 @@ function ChangePassword() {
     const updatePassword = async (passData) => {
         const { oldPassword, newPassword, confirmPassword } = passData;
 
-        console.log(passData);
+        // console.log(passData);
 
-        console.log("this is a new password");
+        // console.log("this is a new password");
         const formData = new FormData();
 
         try {
@@ -42,11 +42,11 @@ function ChangePassword() {
                 const response = await updateUserPassword(formData);
 
                 if (response) {
-                    console.log(response);
+                    // console.log(response);
 
                     alert(`${response.message}`);
 
-                    navigate("/profile");
+                    navigate("/user/profile");
                 }
             }
         } catch (error) {
@@ -111,8 +111,7 @@ function ChangePassword() {
                                                     as="h3"
                                                     className="text-base font-semibold leading-6 text-gray-900"
                                                 >
-                                                    Change the user profile
-                                                    picture
+                                                    Change the user password
                                                 </Dialog.Title>
                                                 <div className="mt-2">
                                                     <Input
@@ -170,7 +169,7 @@ function ChangePassword() {
                                             className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                                             onClick={() => {
                                                 setOpen(false);
-                                                navigate("/profile");
+                                                navigate("/user/profile");
                                             }}
                                             ref={cancelButtonRefP}
                                         >

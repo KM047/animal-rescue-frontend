@@ -1,9 +1,11 @@
-import { Login as LoginComp } from "../components";
+import { Login as LoginComp, TitleSetter } from "../components";
 function Login() {
     return (
-        <div className="py-8">
-            <LoginComp />
-        </div>
+        <TitleSetter title={"User Login"}>
+            <div className="py-8">
+                <LoginComp />
+            </div>
+        </TitleSetter>
     );
 }
 

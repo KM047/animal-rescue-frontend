@@ -1,10 +1,12 @@
-import { Signup as SignUpComponent } from "../components";
+import { Signup as SignupComp, TitleSetter } from "../components";
 
 function Signup() {
     return (
-        <div className="py-8">
-            <SignUpComponent />
-        </div>
+        <TitleSetter title={"User Signup"}>
+            <div className="py-8">
+                <SignupComp />
+            </div>
+        </TitleSetter>
     );
 }
 

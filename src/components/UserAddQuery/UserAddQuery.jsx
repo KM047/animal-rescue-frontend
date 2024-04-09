@@ -118,7 +118,7 @@ function UserAddQuery() {
         };
 
         function success(position) {
-            console.log(position);
+            
             const { latitude, longitude } = position.coords;
 
             if (latitude && longitude) {
@@ -138,7 +138,6 @@ function UserAddQuery() {
         try {
             const formData = new FormData();
 
-            console.log("request data", data);
 
             formData.append("animalType", data.animalType);
             formData.append("breed", data.breed);
@@ -151,7 +150,6 @@ function UserAddQuery() {
             const response = await addAnimalData(formData);
 
             if (response) {
-                console.log(response);
 
                 setSuccess(true);
             }

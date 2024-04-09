@@ -16,10 +16,10 @@ function LogoutBtn() {
         try {
             const data = await logoutUser();
 
-            console.log({ data });
+            // console.log({ data });
             dispatch(logout());
             dispatch(removeAllAnimals());
-            navigate("/login");
+            navigate("/");
             window.location.reload();
         } catch (error) {
             console.log(error);

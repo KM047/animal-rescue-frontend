@@ -43,7 +43,7 @@ function App() {
             <div className="w-full block">
                 <Header />
                 {!loading ? (
-                    <main className="min-h-[700px]">
+                    <main className="min-h-[300px]">
                         <Outlet />
                     </main>
                 ) : (

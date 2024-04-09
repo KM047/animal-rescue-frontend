@@ -1,13 +1,14 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { SampleBtn, Input, Logo, Loading } from "./index";
+import { SampleBtn, Input, Logo, Loading } from "../index";
 import { login as authLogin } from "../../store/orgAuthSlice";
 
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import { orgLogin } from "../../api/orgApi";
+import { getAllRescuers, orgLogin } from "../../api/orgApi";
+import { setAllRescuers } from "../../store/allRescuersSlice";
 
 function LoginForOrg() {
     const navigate = useNavigate();
@@ -27,8 +28,8 @@ function LoginForOrg() {
 
             const session = await orgLogin(data);
             if (session) {
-                console.log("session -> ", session);
-                dispatch(authLogin(session.data.user));
+                // console.log("session -> ", session);
+                dispatch(authLogin(session.data.org));
 
                 Cookies.set("accessToken", session.data.accessToken, {
                     expires: 7,
@@ -37,8 +38,14 @@ function LoginForOrg() {
                     expires: 7,
                 });
 
+                // const allRescuersData = await getAllRescuers();
+                // if (allRescuersData.data) {
+                //     console.log(allRescuersData.data);
+                //     dispatch(setAllRescuers(allRescuersData.data));
+                // }
+
                 setError("Logged in successfully");
-                navigate("/");
+                navigate("/org");
 
                 localStorage.setItem("accessToken", session.data.accessToken);
 
@@ -62,12 +69,12 @@ function LoginForOrg() {
                     </span>
                 </div>
                 <h2 className="text-center text-2xl text-white/80 font-bold leading-tight">
-                    Sign in to your account
+                    Organization Login
                 </h2>
                 <p className="mt-2 text-center text-base text-white/60">
                     Don&apos;t have any account?&nbsp;
                     <Link
-                        to="/signup"
+                        to="/org/signup"
                         className="font-medium text-primary transition-all duration-200 hover:underline"
                     >
                         Sign Up
@@ -105,9 +112,11 @@ function LoginForOrg() {
                             })}
                         />
 
-                        <SampleBtn type="submit" className="w-full">
-                            {loading ? <Loading /> : "Sign in"}
-                        </SampleBtn>
+                        <div className="flex justify-center items-center">
+                            <SampleBtn type="submit" className="w-36">
+                                {loading ? <Loading /> : "Sign in"}
+                            </SampleBtn>
+                        </div>
                     </div>
                 </form>
             </div>

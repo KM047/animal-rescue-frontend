@@ -19,7 +19,7 @@ function MyQuery() {
             setLoading(true);
             const response = await getAllAnimalsData(page);
 
-            console.log(response.data);
+            // console.log(response.data);
 
             setAllAnimalsData((previousData) => [
                 ...previousData,
@@ -80,7 +80,7 @@ function MyQuery() {
                                         key={`${data._id}-${idx}`}
                                         className=""
                                     >
-                                        <AnimalCard {...data} />
+                                        <AnimalCard {...data} url={"/user"} />
                                     </div>
                                 )
                         )}

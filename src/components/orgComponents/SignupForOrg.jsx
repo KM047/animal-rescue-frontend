@@ -1,11 +1,11 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { SampleBtn, Input, Logo } from "./index";
+import { SampleBtn, Input, Logo } from "../index";
 // import { login as authLogin } from "../store/authSlice";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Loading from "./Loading";
+import Loading from "./../Loading";
 import { orgSignup } from "../../api/orgApi";
 
 function SignupForOrg() {
@@ -22,6 +22,29 @@ function SignupForOrg() {
     const [responseMessage, setResponseMessage] = useState("");
 
     const [locationData, setLocationData] = useState("");
+
+    const locationResult = async () => {
+        const options = {
+            enableHighAccuracy: true, // enable high accuracy
+            timeout: 300000, // wait for 5 minutes
+        };
+
+        function success(position) {
+            // console.log(position);
+            const { latitude, longitude } = position.coords;
+
+            if (latitude && longitude) {
+                setLocationData(`${latitude}, ${longitude}`);
+            }
+        }
+
+        function error(error) {
+            console.log(error);
+        }
+
+        navigator.geolocation.getCurrentPosition(success, error, options);
+        // console.log(navigator.userAgent.toString());
+    };
 
     const create = async (data) => {
         try {
@@ -40,12 +63,12 @@ function SignupForOrg() {
             setLoading(true);
             const response = await orgSignup(formData);
 
-            console.log("response -> ", response.data);
+            // console.log("response -> ", response.data);
 
             if (response) {
                 // const responseData = await response.json();
                 setResponseMessage(response.message);
-                navigate("/login");
+                navigate("/org/login");
             } else {
                 // const errorData = await response.json();
                 setResponseMessage(response.message);
@@ -67,12 +90,12 @@ function SignupForOrg() {
                     </span>
                 </div>
                 <h2 className="text-center text-2xl font-bold leading-tight">
-                    Sign in to your account
+                    Organization Registration
                 </h2>
                 <p className="mt-2 text-center text-base text-white/60">
                     Already have an account?&nbsp;
                     <Link
-                        to="/login"
+                        to="/org/login"
                         className="font-medium text-primary transition-all duration-200 hover:underline"
                     >
                         Sign In
@@ -87,7 +110,7 @@ function SignupForOrg() {
                     <div className="space-y-5">
                         <Input
                             label="Full name: "
-                            placeholder="Enter your full name"
+                            placeholder="Enter your organization name"
                             {...register("orgName", {
                                 required: true,
                             })}
@@ -95,7 +118,7 @@ function SignupForOrg() {
 
                         <Input
                             label="Phone Number: "
-                            placeholder="Enter your full name"
+                            placeholder="Enter your contact number"
                             type="number"
                             {...register("phoneNumber", {
                                 required: true,
@@ -133,6 +156,37 @@ function SignupForOrg() {
                                 required: true,
                             })}
                         />
+
+                        <div className="text-white flex-col gap-2">
+                            <label htmlFor="location-btn">Add location</label>
+                            <span
+                                id="location-btn"
+                                className="bg-white w-7 h-7 flex justify-center items-center rounded-full cursor-pointer mt-2"
+                                onClick={() => locationResult()}
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={1.5}
+                                    stroke="currentColor"
+                                    className="w-6 h-6 text-black"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                                    />
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                                    />
+                                </svg>
+                            </span>
+
+                            <p className="text-green-300">{locationData}</p>
+                        </div>
 
                         <div className="flex justify-center items-center">
                             <SampleBtn type="submit" className="bg-gray-700">

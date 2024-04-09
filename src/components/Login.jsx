@@ -29,7 +29,7 @@ function Login() {
 
             const session = await userLogin(data);
             if (session) {
-                console.log("session -> ", session);
+                // console.log("session -> ", session);
                 dispatch(authLogin(session.data.user));
 
                 Cookies.set("accessToken", session.data.accessToken, {
@@ -40,7 +40,7 @@ function Login() {
                 });
 
                 setError("Logged in successfully");
-                navigate("/");
+                navigate("/user");
 
                 localStorage.setItem("accessToken", session.data.accessToken);
 
@@ -64,12 +64,12 @@ function Login() {
                     </span>
                 </div>
                 <h2 className="text-center text-2xl text-white/80 font-bold leading-tight">
-                    Sign in to your account
+                    User Login
                 </h2>
                 <p className="mt-2 text-center text-base text-white/60">
                     Don&apos;t have any account?&nbsp;
                     <Link
-                        to="/signup"
+                        to="/user/signup"
                         className="font-medium text-primary transition-all duration-200 hover:underline"
                     >
                         Sign Up
@@ -107,9 +107,11 @@ function Login() {
                             })}
                         />
 
-                        <SampleBtn type="submit" className="w-full">
-                            {loading ? <Loading /> : "Sign in"}
-                        </SampleBtn>
+                        <div className="flex justify-center">
+                            <SampleBtn type="submit" className="">
+                                {loading ? <Loading /> : "Sign in"}
+                            </SampleBtn>
+                        </div>
                     </div>
                 </form>
             </div>

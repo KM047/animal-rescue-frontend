@@ -33,7 +33,7 @@ function Profile() {
 
     const updateAvatar = async (data) => {
         const formData = new FormData();
-        console.log(data);
+        // console.log(data);
 
         try {
             formData.append("avatar", data?.avatar[0]);
@@ -41,7 +41,8 @@ function Profile() {
             const response = await updateUserAvatar(formData);
 
             if (response) {
-                console.log(response);
+                // console.log(response);
+                alert(response.message);
             }
         } catch (error) {
             console.log(error.message);
@@ -216,7 +217,7 @@ function Profile() {
                             </div>
                             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-40 sm:px-0">
                                 <dt className="text-sm font-medium leading-6 ">
-                                    <Link to={"/change-password"}>
+                                    <Link to={"/user/change-password"}>
                                         <p className="text-blue-600 cursor-pointer">
                                             Change Password
                                         </p>

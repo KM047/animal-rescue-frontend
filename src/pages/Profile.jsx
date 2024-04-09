@@ -1,14 +1,14 @@
 import React from "react";
 
-import { Container, Profile as UserProfile } from "../components";
+import { Container, TitleSetter, Profile as UserProfile } from "../components";
 
 function Profile() {
     return (
-        <div>
+        <TitleSetter title={"Profile"}>
             <Container>
-                <UserProfile />a
+                <UserProfile />
             </Container>
-        </div>
+        </TitleSetter>
     );
 }
 

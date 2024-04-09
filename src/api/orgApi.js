@@ -3,20 +3,21 @@ import Cookies from "js-cookie";
 
 export const orgSignup = async (orgData) => {
     try {
-        const response = await axiosInstance.post("/users/register", orgData, {
+        const response = await axiosInstance.post("/orgs/register", orgData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
         });
 
-        console.log("response: ", response);
+        // console.log("response: ", response);
 
         return response.data;
     } catch (error) {
-        console.error("Error signup user:", error);
+        console.error("Error signup org:", error);
         throw error;
     }
 };
+
 export const addRescuer = async (rescuerData) => {
     try {
         const response = await axiosInstance.post(
@@ -26,21 +27,22 @@ export const addRescuer = async (rescuerData) => {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
+                withCredentials: true,
             }
         );
 
-        console.log("response: ", response);
+        // console.log("response: ", response);
 
         return response.data;
     } catch (error) {
-        console.error("Error signup user:", error);
+        console.error("Error while adding rescuer:", error);
         throw error;
     }
 };
 
 export const orgLogin = async (orgData) => {
     try {
-        const response = await axiosInstance.post("/rescuers/login", orgData, {
+        const response = await axiosInstance.post("/orgs/loginOrg", orgData, {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
@@ -49,7 +51,7 @@ export const orgLogin = async (orgData) => {
 
         return response.data;
     } catch (error) {
-        console.error("Error updating user:", error);
+        console.error("Error updating org:", error);
         throw error;
     }
 };
@@ -70,7 +72,7 @@ export const logoutOrg = async () => {
         // console.log("response from logout:", response);
         return response.message;
     } catch (error) {
-        console.error("Error updating user:", error);
+        console.error("Error updating org:", error);
         throw error;
     }
 };
@@ -94,7 +96,7 @@ export const updateOrgPassword = async (orgData) => {
 
         return response.data;
     } catch (error) {
-        console.error("Error signup user:", error);
+        console.error("Error while updating password:", error);
         throw error;
     }
 };
@@ -114,11 +116,11 @@ export const updateOrgAvatar = async (orgData) => {
             }
         );
 
-        console.log("response: ", response);
+        // console.log("response: ", response);
 
         return response.data;
     } catch (error) {
-        console.error("Error signup user:", error);
+        console.error("Error while updating the logo:", error);
         throw error;
     }
 };
@@ -136,11 +138,11 @@ export const removeTheRescuer = async (rescuerId) => {
             }
         );
 
-        console.log("response: ", response);
+        // console.log("response: ", response);
 
         return response.data;
     } catch (error) {
-        console.error("Error signup user:", error);
+        console.error("Error while removing rescuer:", error);
         throw error;
     }
 };
@@ -159,7 +161,7 @@ export const getAllRescuers = async () => {
 
         return response.data;
     } catch (error) {
-        console.error("Error signup user:", error);
+        console.error("Error while fetching all rescuers:", error);
         throw error;
     }
 };
@@ -177,7 +179,32 @@ export const getAllRescuedAnimal = async () => {
 
         return response.data;
     } catch (error) {
-        console.error("Error signup user:", error);
+        console.error("Error while fetching all rescued animals by org:", error);
+        throw error;
+    }
+};
+
+export const getCurrentOrg = async () => {
+    try {
+        const accessToken =
+            Cookies.get("accessToken") || localStorage.getItem("accessToken");
+
+        // console.log("Access token retrieved", accessToken);
+
+        const response = await axiosInstance.get("/orgs/current-org", {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+        });
+        // const data = await response.json();
+
+        if (accessToken) {
+            Cookies.set("accessToken", accessToken);
+        }
+
+        return response.data;
+    } catch (error) {
+        console.error("Error while getting the org data:", error);
         throw error;
     }
 };

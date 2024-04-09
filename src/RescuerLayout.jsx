@@ -2,15 +2,14 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 // import { login, logout } from "./store/authSlice";
-import { Header } from "./components/index";
+import { Header } from "./components/rescuerComponents/index";
 
 import { Outlet } from "react-router-dom";
 
 import Loading from "./components/Loading";
-import { login as authLogin, logout } from "./store/authSlice";
-import { getCurrentUser } from "./api/userApi";
-import { getAllAnimalsData } from "./api/animalApi";
-import { setAnimal } from "./store/animalSlice";
+import { login as authLogin, logout } from "./store/rescuerAuthSlice";
+import { getCurrentRescuer } from "./api/rescuerApi";
+
 
 function RescuerLayout() {
     const [loading, setLoading] = useState(false);
@@ -19,17 +18,17 @@ function RescuerLayout() {
 
     useEffect(() => {
         setLoading(true);
-        getCurrentUser().then((userData) => {
-            if (userData.data) {
-                // console.log("userData.data is ", userData.data);
-                dispatch(authLogin(userData.data));
+        getCurrentRescuer().then((rescuerData) => {
+            if (rescuerData.data) {
+                // console.log("rescuerData.data is ", rescuerData.data);
+                dispatch(authLogin(rescuerData.data));
 
-                getAllAnimalsData().then((animalData) => {
-                    if (animalData.data) {
-                        // console.log(animalData.data);
-                        dispatch(setAnimal(animalData.data));
-                    }
-                });
+                // getAllAnimalsData().then((animalData) => {
+                //     if (animalData.data) {
+                //         // console.log(animalData.data);
+                //         dispatch(setAnimal(animalData.data));
+                //     }
+                // });
             } else {
                 dispatch(logout());
             }

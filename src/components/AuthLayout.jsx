@@ -13,9 +13,9 @@ export default function Protected({ children, authentication = true }) {
         // const isLoggedIn = localStorage.getItem("isLoggedIn");
 
         if (authentication && authStatus !== authentication) {
-            navigate("/login");
+            navigate("/");
         } else if (!authentication && authStatus !== authentication) {
-            navigate("/profile");
+            navigate("/user");
         }
         setLoader(false);
     }, [authStatus, navigate, authentication]);

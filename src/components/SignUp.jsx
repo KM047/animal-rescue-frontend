@@ -45,7 +45,7 @@ function Signup() {
             //     }
             // );
 
-            console.log("response -> ", response.data);
+            // console.log("response -> ", response.data);
 
             if (response) {
                 // const responseData = await response.json();
@@ -72,12 +72,12 @@ function Signup() {
                     </span>
                 </div>
                 <h2 className="text-center text-2xl font-bold leading-tight">
-                    Sign in to your account
+                    User Registration
                 </h2>
                 <p className="mt-2 text-center text-base text-white/60">
                     Already have an account?&nbsp;
                     <Link
-                        to="/login"
+                        to="/user/login"
                         className="font-medium text-primary transition-all duration-200 hover:underline"
                     >
                         Sign In
@@ -145,7 +145,7 @@ function Signup() {
                             })}
                         />
 
-                        <div className="flex justify-center items-center">
+                        <div className="flex justify-center">
                             <SampleBtn type="submit" className="bg-gray-700">
                                 {loading ? <Loading /> : "Create Account"}
                             </SampleBtn>

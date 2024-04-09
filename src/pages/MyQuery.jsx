@@ -1,8 +1,12 @@
 import React from "react";
-import { MyQuery as MyQ } from "../components";
+import { MyQuery as MyQ, TitleSetter } from "../components";
 
 function MyQuery() {
-    return <MyQ />;
+    return (
+        <TitleSetter title={"User Query"}>
+            <MyQ />
+        </TitleSetter>
+    );
 }
 
 export default MyQuery;

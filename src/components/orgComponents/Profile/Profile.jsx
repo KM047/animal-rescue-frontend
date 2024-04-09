@@ -3,14 +3,13 @@ import {
     getCurrentUser,
     updateUserAvatar,
     updateUserPassword,
-} from "./../../api/userApi";
+} from "../../../api/userApi";
 // import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
-import Input from "../Input";
-import EditUserDetails from "../EditUserDetails";
+import Input from "../../Input";
 import { Link } from "react-router-dom";
 
 function Profile() {
@@ -27,13 +26,13 @@ function Profile() {
     const [open, setOpen] = useState(false);
     const [error, setError] = useState("");
 
-    const loggedInUser = useSelector((state) => state.auth.userData);
+    const loggedInOrg = useSelector((state) => state.orgAuth.orgData);
 
-    // console.log("loggedInUser is", loggedInUser);
+    // console.log("loggedInOrg is", loggedInOrg);
 
     const updateAvatar = async (data) => {
         const formData = new FormData();
-        console.log(data);
+        // console.log(data);
 
         try {
             formData.append("avatar", data?.avatar[0]);
@@ -41,7 +40,8 @@ function Profile() {
             const response = await updateUserAvatar(formData);
 
             if (response) {
-                console.log(response);
+                // console.log(response);
+                alert(response.message);
             }
         } catch (error) {
             console.log(error.message);
@@ -166,7 +166,7 @@ function Profile() {
                 <div className="flex justify-between">
                     <img
                         className="object-cover h-36 w-36 rounded-full bg-white sm"
-                        src={loggedInUser?.avatar}
+                        src={loggedInOrg?.logo}
                         alt="Avatar"
                     />
 
@@ -184,26 +184,19 @@ function Profile() {
                         <dl className="">
                             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-40 sm:px-0">
                                 <dt className="text-sm font-medium leading-6 ">
-                                    Full name
+                                    Organization Name
                                 </dt>
                                 <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
-                                    {loggedInUser?.fullName}
+                                    {loggedInOrg?.orgName}
                                 </dd>
                             </div>
-                            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-40 sm:px-0">
-                                <dt className="text-sm font-medium leading-6">
-                                    Username
-                                </dt>
-                                <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
-                                    {loggedInUser?.username}
-                                </dd>
-                            </div>
+
                             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-40 sm:px-0">
                                 <dt className="text-sm font-medium leading-6 ">
                                     Email address
                                 </dt>
                                 <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
-                                    {loggedInUser?.email}
+                                    {loggedInOrg?.email}
                                 </dd>
                             </div>
                             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-40 sm:px-0">
@@ -211,12 +204,12 @@ function Profile() {
                                     Phone number
                                 </dt>
                                 <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
-                                    {loggedInUser?.phoneNumber}
+                                    {loggedInOrg?.phoneNumber}
                                 </dd>
                             </div>
                             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-40 sm:px-0">
                                 <dt className="text-sm font-medium leading-6 ">
-                                    <Link to={"/change-password"}>
+                                    <Link to={"/org/change-password"}>
                                         <p className="text-blue-600 cursor-pointer">
                                             Change Password
                                         </p>

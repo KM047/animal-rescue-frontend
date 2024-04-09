@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function AnimalCard({ _id, animalPicture, animalType, createdAt }) {
+function AnimalCard({
+    _id,
+    animalPicture,
+    animalType,
+    createdAt,
+    updatedAt,
+    rescueStatus,
+    url = "",
+}) {
     const convertTime = (timestamp) => {
         const time = new Date(timestamp);
 
@@ -12,7 +20,7 @@ function AnimalCard({ _id, animalPicture, animalType, createdAt }) {
 
     return (
         <>
-            <Link to={`/animal-info/${_id}`}>
+            <Link to={`${url}/animal-info/${_id}`}>
                 <div className=" w-full  ">
                     <img
                         src={animalPicture}
@@ -23,9 +31,15 @@ function AnimalCard({ _id, animalPicture, animalType, createdAt }) {
                 <h3 className="mt-2 text-lg text-white text-center">
                     {animalType}
                 </h3>
-                <p className="mt-1 text-sm font-medium text-gray-600 text-center">
-                    {convertTime(createdAt)}
-                </p>
+                {rescueStatus == false ? (
+                    <p className="mt-1 text-sm font-medium text-gray-600 text-center">
+                        {convertTime(createdAt)}
+                    </p>
+                ) : (
+                    <p className="mt-1 text-sm font-medium text-green-600 text-center">
+                        Rescued : {convertTime(updatedAt)}
+                    </p>
+                )}
             </Link>
         </>
     );

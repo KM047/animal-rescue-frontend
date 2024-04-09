@@ -2,10 +2,10 @@ import { useDispatch } from "react-redux";
 // import authService from "../../appwrite/auth";
 
 import { useNavigate } from "react-router-dom";
-import { logoutUser } from "../../api/userApi";
+import { logoutRescuer } from "../../../api/rescuerApi";
 import Cookies from "js-cookie";
-import { logout } from "../../store/authSlice";
-import { removeAllAnimals } from "../../store/animalSlice";
+import { logout } from "../../../store/rescuerAuthSlice";
+import { removeAllAnimals } from "../../../store/animalSlice";
 
 function LogoutBtn() {
     const dispatch = useDispatch();
@@ -14,12 +14,12 @@ function LogoutBtn() {
     const logoutHandler = async () => {
         window.localStorage.clear();
         try {
-            const data = await logoutUser();
+            const data = await logoutRescuer();
 
-            console.log({ data });
+            // console.log({ data });
             dispatch(logout());
             dispatch(removeAllAnimals());
-            navigate("/login");
+            navigate("/rescuer/login");
             window.location.reload();
         } catch (error) {
             console.log(error);

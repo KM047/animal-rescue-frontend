@@ -1,7 +1,8 @@
 import axios from "axios";
+import config from "../config/config";
 
 const axiosInstance = axios.create({
-    baseURL: "http://localhost:8000/api/v1", // Replace this with your actual API base URL
+    baseURL: `${config.severURL}`, // Replace this with your actual API base URL
     headers: {
         "Content-Type": "application/json",
         headers: {
@@ -11,5 +12,7 @@ const axiosInstance = axios.create({
         // You can add other common headers here if needed
     },
 });
+
+console.log(config.severURL);
 
 export default axiosInstance;
