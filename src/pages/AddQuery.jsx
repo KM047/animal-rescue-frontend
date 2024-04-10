@@ -1,11 +1,15 @@
 import React from "react";
-import { Container, UserAddQuery } from "../components";
+import { Container, TitleSetter, UserAddQuery } from "../components";
 
 function AddQuery() {
     return (
-        <Container>
-            <UserAddQuery />
-        </Container>
+        <>
+            <Container>
+                <TitleSetter title={"Add Query"}>
+                    <UserAddQuery />
+                </TitleSetter>
+            </Container>
+        </>
     );
 }
 

@@ -31,15 +31,17 @@ function ServerHealthCheck() {
     };
 
     return (
-        <div className="text-white">
-            <h2 className="">Server Health Check</h2>
-            <button onClick={checkServerHealth} disabled={loading}>
-                {<Loading /> ? "Checking..." : "Check Server Health"}
-            </button>
-            {healthStatus !== null && (
-                <p>Server is {healthStatus ? "healthy" : "unhealthy"}</p>
-            )}
-        </div>
+        <>
+            <div className="text-white">
+                <h2 className="">Server Health Check</h2>
+                <button onClick={checkServerHealth} disabled={loading}>
+                    {<Loading /> ? "Checking..." : "Check Server Health"}
+                </button>
+                {healthStatus !== null && (
+                    <p>Server is {healthStatus ? "healthy" : "unhealthy"}</p>
+                )}
+            </div>
+        </>
     );
 }
 

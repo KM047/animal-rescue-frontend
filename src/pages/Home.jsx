@@ -4,9 +4,11 @@ import { TitleSetter } from "./../components";
 
 function Home() {
     return (
-        <TitleSetter title={"Home"}>
-            <HeroPage />
-        </TitleSetter>
+        <>
+            <TitleSetter title={"Home"}>
+                <HeroPage />
+            </TitleSetter>
+        </>
     );
 }
 

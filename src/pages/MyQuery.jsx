@@ -3,9 +3,11 @@ import { MyQuery as MyQ, TitleSetter } from "../components";
 
 function MyQuery() {
     return (
-        <TitleSetter title={"User Query"}>
-            <MyQ />
-        </TitleSetter>
+        <>
+            <TitleSetter title={"User Query"}>
+                <MyQ />
+            </TitleSetter>
+        </>
     );
 }
 

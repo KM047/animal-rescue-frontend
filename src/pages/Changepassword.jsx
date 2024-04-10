@@ -1,10 +1,12 @@
 import React from "react";
-import { ChangePassword as ChangePass } from "../components";
+import { ChangePassword as ChangePass, TitleSetter } from "../components";
 
 function ChangePassword() {
     return (
         <>
-            <ChangePass />
+            <TitleSetter title={"Change Password"}>
+                <ChangePass />
+            </TitleSetter>
         </>
     );
 }

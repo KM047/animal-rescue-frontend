@@ -4,11 +4,13 @@ import { Container, TitleSetter } from "../../components";
 
 function RescuedAnimal() {
     return (
-        <TitleSetter title={"Rescued Animals"}>
-            <Container>
-                <RescuedAnimals />
-            </Container>
-        </TitleSetter>
+        <>
+            <TitleSetter title={"Rescued Animals"}>
+                <Container>
+                    <RescuedAnimals />
+                </Container>
+            </TitleSetter>
+        </>
     );
 }
 

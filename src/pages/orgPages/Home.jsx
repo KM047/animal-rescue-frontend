@@ -1,12 +1,15 @@
 import React from "react";
 
 import { Home as OrgHome } from "../../components/orgComponents";
+import { TitleSetter } from "../../components";
 
 function Home() {
     return (
-        <div>
-            <OrgHome />
-        </div>
+        <>
+            <TitleSetter title={"Home"}>
+                <OrgHome />
+            </TitleSetter>
+        </>
     );
 }
 

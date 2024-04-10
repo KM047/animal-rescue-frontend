@@ -4,9 +4,11 @@ import { TitleSetter } from "../../components";
 
 function ChangePasswordForOrg() {
     return (
-        <TitleSetter title={"Change Password"}>
-            <ChangePassword />
-        </TitleSetter>
+        <>
+            <TitleSetter title={"Change Password"}>
+                <ChangePassword />
+            </TitleSetter>
+        </>
     );
 }
 

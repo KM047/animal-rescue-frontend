@@ -4,9 +4,11 @@ import { TitleSetter } from "../../components";
 
 function AddRescuers() {
     return (
-        <TitleSetter title={"Add Rescuers"}>
-            <AddRescuer />
-        </TitleSetter>
+        <>
+            <TitleSetter title={"Add Rescuers"}>
+                <AddRescuer />
+            </TitleSetter>
+        </>
     );
 }
 
