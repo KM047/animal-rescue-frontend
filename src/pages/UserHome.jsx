@@ -1,5 +1,5 @@
 import React from "react";
-import { Home as HeroPage, TitleSetter } from "./../components/index";
+import { Home as HeroPage, TitleSetter } from "../components/index";
 
 function Home() {
     return (
