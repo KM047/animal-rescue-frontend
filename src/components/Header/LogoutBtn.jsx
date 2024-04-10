@@ -19,6 +19,9 @@ function LogoutBtn() {
             // console.log({ data });
             dispatch(logout());
             dispatch(removeAllAnimals());
+            Cookies.remove("accessToken");
+            Cookies.remove("refreshToken");
+
             navigate("/");
             window.location.reload();
         } catch (error) {
