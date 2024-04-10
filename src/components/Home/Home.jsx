@@ -182,7 +182,7 @@ export default function Home() {
                                     </h1>
 
                                     <div className="mt-9 flex justify-end">
-                                        <Link to={"/signup"}>
+                                        <Link to={"/choose-user"}>
                                             <button className="animated-button">
                                                 <span>Get Started</span>
                                                 <span></span>

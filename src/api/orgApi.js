@@ -20,14 +20,16 @@ export const orgSignup = async (orgData) => {
 
 export const addRescuer = async (rescuerData) => {
     try {
+        const accessToken = Cookies.get("accessToken");
+
         const response = await axiosInstance.post(
             "/orgs/add-rescuer",
             rescuerData,
             {
                 headers: {
                     "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${accessToken}`,
                 },
-                withCredentials: true,
             }
         );
 
@@ -58,10 +60,8 @@ export const orgLogin = async (orgData) => {
 
 export const logoutOrg = async () => {
     try {
-
         const accessToken =
             Cookies.get("accessToken") || localStorage.getItem("accessToken");
-
 
         const response = await axiosInstance.post(
             "/orgs/logout",
@@ -73,7 +73,6 @@ export const logoutOrg = async () => {
             }
         );
 
-        
         // const data = await response.json();
         // console.log("response from logout:", response);
         return response.message;
