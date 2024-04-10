@@ -58,14 +58,18 @@ export const orgLogin = async (orgData) => {
 
 export const logoutOrg = async () => {
     try {
+
+        const accessToken =
+            Cookies.get("accessToken") || localStorage.getItem("accessToken");
+
+
         const response = await axiosInstance.post(
             "/orgs/logout",
             {},
             {
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
+                    Authorization: `Bearer ${accessToken}`,
                 },
-                withCredentials: true,
             }
         );
 

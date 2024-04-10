@@ -22,17 +22,19 @@ export const rescuerLogin = async (rescuerData) => {
 
 export const logoutRescuer = async () => {
     try {
+        const accessToken =
+            Cookies.get("accessToken") || localStorage.getItem("accessToken");
+
         const response = await axiosInstance.post(
             "/rescuers/logout",
             {},
             {
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
+                    Authorization: `Bearer ${accessToken}`,
                 },
-                withCredentials: true,
             }
         );
-        
+
         // const data = await response.json();
         // console.log("response from logout:", response);
         return response.message;
