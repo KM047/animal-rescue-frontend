@@ -117,7 +117,7 @@ export default function Home() {
                     {user === null && (
                         <>
                             <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-20 lg:px-8">
-                                <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6 flex justify-center items-center p-4 ">
+                                <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6 flex justify-center items-center ">
                                     <Swiper
                                         spaceBetween={30}
                                         centeredSlides={true}
@@ -175,10 +175,9 @@ export default function Home() {
                                     </Swiper>
                                 </div>
                                 <div className="flex flex-col justify-center px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
-                                    <h1 className="mt-8 text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-6xl leading-8 ">
-                                        Every Pet Deserves a Happy Ending.{" "}
-                                        <br />
-                                        Start Yours Now.
+                                    <h1 className="mt-8 text-3xl tracking-wide font-sans font-semibold  text-white md:text-4xl lg:text-6xl leading-8 ">
+                                        Every Pet Deserves a Happy Life, And
+                                        Every Life Matters
                                     </h1>
 
                                     <div className="mt-9 flex justify-end">

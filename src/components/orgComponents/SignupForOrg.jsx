@@ -185,7 +185,11 @@ function SignupForOrg() {
                                 </svg>
                             </span>
 
-                            <p className="text-green-300">{locationData}</p>
+                            <p className="text-green-300">
+                                {locationData.length == 0
+                                    ? "Click above 👆"
+                                    : "Location added 👍"}
+                            </p>
                         </div>
 
                         <div className="flex justify-center items-center">

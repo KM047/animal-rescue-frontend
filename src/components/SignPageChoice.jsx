@@ -1,12 +1,22 @@
 import { Link } from "react-router-dom";
 
+import img1 from "../assets/img_org.png";
+import img2 from "../assets/img_res.png";
+import img3 from "../assets/img_user.png";
+
 export default function SignPageChoice() {
     return (
         <div className="text-white py-10 sm:py-32 flex justify-center items-center h-full w-full">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mt-6 grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
                     <div className="relative flex w-50 flex-col rounded-xl bg-[#0C121C] bg-clip-border text-gray-700 shadow-md">
-                        <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-300 to-green-600"></div>
+                        <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-300 to-green-600">
+                        <img
+                                src={img1}
+                                alt="user"
+                                className=" h-40 object-cover"
+                            />
+                        </div>
                         <div className="p-6 text-[#D6DEE7]">
                             <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal antialiased">
                                 Organization
@@ -37,7 +47,13 @@ export default function SignPageChoice() {
                         </div>
                     </div>
                     <div className="relative flex w-50 flex-col rounded-xl bg-[#0C121C] bg-clip-border text-gray-700 shadow-md">
-                        <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-yellow-300 to-orange-600"></div>
+                        <div className="relative flex justify-center  mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-yellow-300 to-orange-600">
+                            <img
+                                src={img2}
+                                alt="user"
+                                className=" h-40 object-cover"
+                            />
+                        </div>
                         <div className="p-6 text-[#D6DEE7]">
                             <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal antialiased">
                                 Rescuers
@@ -59,7 +75,13 @@ export default function SignPageChoice() {
                         </div>
                     </div>
                     <div className="relative flex w-50 flex-col rounded-xl bg-[#0C121C] bg-clip-border text-gray-700 shadow-md">
-                        <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-clip-border text-white shadow-lg shadow-blue-red-500/40 bg-gradient-to-r from-red-500 to-orange-600"></div>
+                        <div className="relative flex justify-center  mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-clip-border text-white shadow-lg shadow-blue-red-500/40 bg-gradient-to-r from-red-500 to-orange-600">
+                            <img
+                                src={img3}
+                                alt="user"
+                                className=" h-40 object-cover"
+                            />
+                        </div>
                         <div className="p-6 text-[#D6DEE7]">
                             <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal antialiased">
                                 User
