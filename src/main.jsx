@@ -6,32 +6,36 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { AuthLayout } from "./components/index.js";
-import Home from "./pages/Home.jsx";
-import Login from "./pages/Login.jsx";
-import Signup from "./pages/Signup.jsx";
-import Profile from "./pages/Profile.jsx";
-import MyQuery from "./pages/MyQuery.jsx";
-import AddQuery from "./pages/AddQuery.jsx";
-import { ChangePassword } from "./pages/ChangePassword.jsx";
-import AnimalDetail from "./pages/AnimalDetail.jsx";
+
 import RescuerLayout from "./RescuerLayout.jsx";
 import OrganizationLayout from "./OrganizationLayout.jsx";
-import OrgHome from "./pages/orgPages/Home.jsx";
 import { AuthLayoutForOrg } from "./components/orgComponents/index.js";
 import { AuthLayoutForRes } from "./components/rescuerComponents/index.js";
-import SignPageChoice from "./pages/SignPageChoice.jsx";
-import OrgLogin from "./pages/orgPages/Login";
-import OrgSignup from "./pages/orgPages/Signup";
-import AddRescuers from "./pages/orgPages/AddRescuers";
-import OrgProfile from "./pages/orgPages/Profile";
-import OrgChangePassword from "./pages/orgPages/ChangePasswordForOrg.jsx";
-import ResLogin from "./pages/rescuerPages/Login";
-import ResProfile from "./pages/rescuerPages/Profile";
-import AddedAnimals from "./pages/rescuerPages/AddedAnimals.jsx";
-import ResAnimalDetail from "./pages/rescuerPages/AnimalDetail";
-import ResHome from "./pages/rescuerPages/Home";
-import RescuedAnimal from "./pages/orgPages/RescuedAnimal";
-import ChangePasswordForRes from "./pages/rescuerPages/ChangePasswordForRes.jsx";
+
+import {
+    UserHome,
+    UserLogin,
+    UserMyQuery,
+    UserProfile,
+    UserAddQuery,
+    UserAnimalDetail,
+    UserChangePassword,
+    SignPageChoice,
+    UserSignup,
+    AddRescuers,
+    ChangePasswordForOrg,
+    OrgHome,
+    OrgLogin,
+    OrgSignup,
+    OrgRescuedAnimal,
+    RescuerAddedAnimals,
+    RescuerAnimalDetail,
+    ChangePasswordForRes,
+    RescuerHome,
+    RescuerProfile,
+    OrgProfile,
+    RescuerLogin,
+} from "./pages/index.js";
 
 const router = createBrowserRouter([
     {
@@ -40,7 +44,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home />,
+                element: <UserHome />,
             },
             {
                 path: "/choose-user",
@@ -58,13 +62,13 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <Home />,
+                element: <UserHome />,
             },
             {
                 path: "login",
                 element: (
                     <AuthLayout authentication={false}>
-                        <Login />
+                        <UserLogin />
                     </AuthLayout>
                 ),
             },
@@ -72,7 +76,7 @@ const router = createBrowserRouter([
                 path: "signup",
                 element: (
                     <AuthLayout authentication={false}>
-                        <Signup />
+                        <UserSignup />
                     </AuthLayout>
                 ),
             },
@@ -80,7 +84,7 @@ const router = createBrowserRouter([
                 path: "profile",
                 element: (
                     <AuthLayout authentication>
-                        <Profile />
+                        <UserProfile />
                     </AuthLayout>
                 ),
             },
@@ -88,7 +92,7 @@ const router = createBrowserRouter([
                 path: "my-queries",
                 element: (
                     <AuthLayout authentication>
-                        <MyQuery />
+                        <UserMyQuery />
                     </AuthLayout>
                 ),
             },
@@ -96,7 +100,7 @@ const router = createBrowserRouter([
                 path: "add-query",
                 element: (
                     <AuthLayout authentication>
-                        <AddQuery />
+                        <UserAddQuery />
                     </AuthLayout>
                 ),
             },
@@ -104,7 +108,7 @@ const router = createBrowserRouter([
                 path: "change-password",
                 element: (
                     <AuthLayout authentication>
-                        <ChangePassword />
+                        <UserChangePassword />
                     </AuthLayout>
                 ),
             },
@@ -112,7 +116,7 @@ const router = createBrowserRouter([
                 path: "animal-info/:animalId",
                 element: (
                     <AuthLayout authentication>
-                        <AnimalDetail />
+                        <UserAnimalDetail />
                     </AuthLayout>
                 ),
             },
@@ -163,7 +167,7 @@ const router = createBrowserRouter([
                 path: "change-password",
                 element: (
                     <AuthLayoutForOrg authentication>
-                        <OrgChangePassword />
+                        <ChangePasswordForOrg />
                     </AuthLayoutForOrg>
                 ),
             },
@@ -171,7 +175,7 @@ const router = createBrowserRouter([
                 path: "rescued-animals",
                 element: (
                     <AuthLayoutForOrg authentication>
-                        <RescuedAnimal />
+                        <OrgRescuedAnimal />
                     </AuthLayoutForOrg>
                 ),
             },
@@ -183,14 +187,14 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <ResHome />,
+                element: <RescuerHome />,
             },
 
             {
                 path: "login",
                 element: (
                     <AuthLayoutForRes authentication={false}>
-                        <ResLogin />
+                        <RescuerLogin />
                     </AuthLayoutForRes>
                 ),
             },
@@ -199,7 +203,7 @@ const router = createBrowserRouter([
                 path: "profile",
                 element: (
                     <AuthLayoutForRes authentication>
-                        <ResProfile />
+                        <RescuerProfile />
                     </AuthLayoutForRes>
                 ),
             },
@@ -207,7 +211,7 @@ const router = createBrowserRouter([
                 path: "rescued-animals",
                 element: (
                     <AuthLayoutForRes authentication>
-                        <AddedAnimals />
+                        <RescuerAddedAnimals />
                     </AuthLayoutForRes>
                 ),
             },
@@ -223,7 +227,7 @@ const router = createBrowserRouter([
                 path: "animal-info/:animalId",
                 element: (
                     <AuthLayoutForRes authentication>
-                        <ResAnimalDetail />
+                        <RescuerAnimalDetail />
                     </AuthLayoutForRes>
                 ),
             },

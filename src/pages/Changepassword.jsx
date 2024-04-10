@@ -1,7 +1,7 @@
 import React from "react";
 import { ChangePassword as ChangePass, TitleSetter } from "../components/index";
 
-export function ChangePassword() {
+function ChangePassword() {
     return (
         <>
             <TitleSetter title={"Change Password"}>
@@ -10,3 +10,4 @@ export function ChangePassword() {
         </>
     );
 }
+export default ChangePassword;
