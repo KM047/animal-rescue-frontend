@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Container, TitleSetter } from "../../components";
-import { Profile as RescuerProfile } from "../../components/rescuerComponents";
+import { Container, TitleSetter } from "../../components/index";
+import { Profile as RescuerProfile } from "../../components/rescuerComponents/index";
 
 function Profile() {
     return (

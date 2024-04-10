@@ -1,5 +1,5 @@
 import React from "react";
-import { ChangePassword as ChangePass, TitleSetter } from "../components";
+import { ChangePassword as ChangePass, TitleSetter } from "../components/index";
 
 function ChangePassword() {
     return (

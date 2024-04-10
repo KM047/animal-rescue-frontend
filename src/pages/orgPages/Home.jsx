@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Home as OrgHome } from "../../components/orgComponents";
-import { TitleSetter } from "../../components";
+import { Home as OrgHome } from "../../components/orgComponents/index";
+import { TitleSetter } from "../../components/index";
 
 function Home() {
     return (

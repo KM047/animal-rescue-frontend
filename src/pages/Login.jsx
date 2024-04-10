@@ -1,4 +1,4 @@
-import { Login as LoginComp, TitleSetter } from "../components";
+import { Login as LoginComp, TitleSetter } from "../components/index";
 function Login() {
     return (
         <>

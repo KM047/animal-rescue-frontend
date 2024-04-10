@@ -1,6 +1,6 @@
 import React from "react";
-import { ChangePassword } from "./../../components/orgComponents";
-import { TitleSetter } from "../../components";
+import { ChangePassword } from "./../../components/orgComponents/index";
+import { TitleSetter } from "../../components/index";
 
 function ChangePasswordForOrg() {
     return (

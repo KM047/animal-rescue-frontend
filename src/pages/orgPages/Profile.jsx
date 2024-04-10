@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Container, TitleSetter } from "../../components";
-import { Profile as OrgProfile } from "../../components/orgComponents";
+import { Container, TitleSetter } from "../../components/index";
+import { Profile as OrgProfile } from "../../components/orgComponents/index";
 
 function Profile() {
     return (

@@ -1,4 +1,4 @@
-import { Signup as SignupComp, TitleSetter } from "../components";
+import { Signup as SignupComp, TitleSetter } from "../components/index";
 
 function Signup() {
     return (
@@ -13,3 +13,6 @@ function Signup() {
 }
 
 export default Signup;
+
+
+

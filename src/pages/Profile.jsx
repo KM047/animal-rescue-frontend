@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, TitleSetter, Profile as UserProfile } from "../components";
+import { Container, TitleSetter, Profile as UserProfile } from "../components/index";
 
 function Profile() {
     return (

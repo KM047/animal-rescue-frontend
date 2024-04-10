@@ -1,5 +1,5 @@
-import { TitleSetter } from "../../components";
-import { LoginForOrg } from "../../components/orgComponents";
+import { TitleSetter } from "../../components/index";
+import { LoginForOrg } from "../../components/orgComponents/index";
 function Login() {
     return (
         <>

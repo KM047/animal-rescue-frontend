@@ -1,5 +1,5 @@
 import React from "react";
-import { TitleSetter, SignPageChoice as UserChoose } from "../components";
+import { TitleSetter, SignPageChoice as UserChoose } from "../components/index";
 
 function SignPageChoice() {
     return (

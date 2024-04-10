@@ -1,6 +1,6 @@
 import React from "react";
-import { RescueAnimal } from "../../components/rescuerComponents";
-import { TitleSetter } from "../../components";
+import { RescueAnimal } from "../../components/rescuerComponents/index";
+import { TitleSetter } from "../../components/index";
 
 function AnimalDetail() {
     return (

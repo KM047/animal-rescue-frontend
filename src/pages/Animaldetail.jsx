@@ -1,5 +1,5 @@
 import React from "react";
-import { AnimalDetail as AnimalD, TitleSetter } from "../components";
+import { AnimalDetail as AnimalD, TitleSetter } from "../components/index";
 
 function AnimalDetail() {
     return (

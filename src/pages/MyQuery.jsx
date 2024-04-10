@@ -1,5 +1,5 @@
 import React from "react";
-import { MyQuery as MyQ, TitleSetter } from "../components";
+import { MyQuery as MyQ, TitleSetter } from "../components/index";
 
 function MyQuery() {
     return (

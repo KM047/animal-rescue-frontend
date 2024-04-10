@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, TitleSetter, UserAddQuery } from "../components";
+import { Container, TitleSetter, UserAddQuery } from "../components/index";
 
 function AddQuery() {
     return (

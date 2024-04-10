@@ -1,6 +1,6 @@
 import React from "react";
-import { Home as RescuerHome } from "./../../components/rescuerComponents";
-import { TitleSetter } from "../../components";
+import { Home as RescuerHome } from "./../../components/rescuerComponents/index";
+import { TitleSetter } from "../../components/index";
 
 function Home() {
     return (

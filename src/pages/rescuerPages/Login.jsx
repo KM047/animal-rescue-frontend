@@ -1,5 +1,5 @@
-import { TitleSetter } from "../../components";
-import { LoginForRes } from "../../components/rescuerComponents";
+import { TitleSetter } from "../../components/index";
+import { LoginForRes } from "../../components/rescuerComponents/index";
 function Login() {
     return (
         <>
