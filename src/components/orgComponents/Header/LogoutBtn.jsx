@@ -19,6 +19,8 @@ function LogoutBtn() {
 
             // console.log({ data });
             dispatch(logout());
+            Cookies.remove("accessToken");
+            Cookies.remove("refreshToken");
             navigate("/org/login");
             window.location.reload();
         } catch (error) {

@@ -18,6 +18,8 @@ function LogoutBtn() {
 
             // console.log({ data });
             dispatch(logout());
+            Cookies.remove("accessToken");
+            Cookies.remove("refreshToken");
             dispatch(removeAllAnimals());
             navigate("/rescuer/login");
             window.location.reload();

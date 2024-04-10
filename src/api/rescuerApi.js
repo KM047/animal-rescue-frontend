@@ -32,8 +32,7 @@ export const logoutRescuer = async () => {
                 withCredentials: true,
             }
         );
-        Cookies.remove("accessToken");
-        Cookies.remove("refreshToken");
+        
         // const data = await response.json();
         // console.log("response from logout:", response);
         return response.message;
