@@ -12,7 +12,7 @@ import Signup from "./pages/Signup.jsx";
 import Profile from "./pages/Profile.jsx";
 import MyQuery from "./pages/MyQuery.jsx";
 import AddQuery from "./pages/AddQuery.jsx";
-import ChangePassword from "./pages/ChangePassword.jsx";
+import { ChangePassword } from "./pages/ChangePassword.jsx";
 import AnimalDetail from "./pages/AnimalDetail.jsx";
 import RescuerLayout from "./RescuerLayout.jsx";
 import OrganizationLayout from "./OrganizationLayout.jsx";

@@ -1,7 +1,7 @@
 import React from "react";
 import { AnimalDetail as AnimalD, TitleSetter } from "../components/index";
 
-function AnimalDetail() {
+export function AnimalDetail() {
     return (
         <>
             <TitleSetter title={"Animal Detail"}>
@@ -10,5 +10,3 @@ function AnimalDetail() {
         </>
     );
 }
-
-export default AnimalDetail;
