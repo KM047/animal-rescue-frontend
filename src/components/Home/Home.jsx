@@ -110,6 +110,7 @@ export default function Home() {
                                         </div>
                                     ) : null
                                 )}
+                                {loading && <Loading />}
                             </div>
                         ))}
 
@@ -192,8 +193,6 @@ export default function Home() {
                             </div>
                         </>
                     )}
-
-                    {loading && <Loading />}
                 </div>
             </div>
         </>

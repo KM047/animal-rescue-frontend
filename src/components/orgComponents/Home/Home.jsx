@@ -19,9 +19,8 @@ import { Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import AnimalCard from "../../AnimalCard";
-import { getAllAnimalsData, getAnimalData } from "../../../api/animalApi";
+import { getAllAnimalsData } from "../../../api/animalApi";
 import Loading from "../../Loading";
-import { addAnimal, setAnimal } from "../../../store/animalSlice";
 
 export default function Home() {
     const org = useSelector((state) => state.orgAuth.orgData);
@@ -185,9 +184,7 @@ export default function Home() {
                             </div>
                         </>
                     )}
-                    {loading && (
-                        <div className="text-white text-cen">Loading...</div>
-                    )}
+                    {loading && <Loading />}
                 </div>
             </div>
         </>

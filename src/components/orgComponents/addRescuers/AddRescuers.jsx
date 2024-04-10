@@ -67,7 +67,6 @@ export default function AddRescuers() {
             const response = await removeTheRescuer(rescuerId);
 
             if (response) {
-                // console.log(response);
                 alert(response.message);
 
                 dispatch(removeRescuer(rescuerId));
@@ -208,9 +207,6 @@ export default function AddRescuers() {
                                                 <button
                                                     type="submit"
                                                     className="inline-flex w-full justify-center rounded-md bg-blue-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                                                    // onClick={() =>
-                                                    //     setOpen(true)
-                                                    // }
                                                 >
                                                     Add
                                                 </button>
