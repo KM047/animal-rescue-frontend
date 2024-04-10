@@ -68,6 +68,9 @@ export const logoutOrg = async () => {
                 withCredentials: true,
             }
         );
+
+        Cookies.remove("accessToken");
+        Cookies.remove("refreshToken");
         // const data = await response.json();
         // console.log("response from logout:", response);
         return response.message;
@@ -179,7 +182,10 @@ export const getAllRescuedAnimal = async () => {
 
         return response.data;
     } catch (error) {
-        console.error("Error while fetching all rescued animals by org:", error);
+        console.error(
+            "Error while fetching all rescued animals by org:",
+            error
+        );
         throw error;
     }
 };
