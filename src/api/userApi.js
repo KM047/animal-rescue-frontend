@@ -84,14 +84,16 @@ export const getCurrentUser = async () => {
 
 export const logoutUser = async () => {
     try {
+        const accessToken =
+            Cookies.get("accessToken") || localStorage.getItem("accessToken");
+
         const response = await axiosInstance.post(
             "/users/logout",
             {},
             {
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
+                    Authorization: `Bearer ${accessToken}`,
                 },
-                withCredentials: true,
             }
         );
         // const data = await response.json();
