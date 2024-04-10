@@ -3,9 +3,9 @@ import { ChangePassword as ChangePass } from "../components";
 
 function ChangePassword() {
     return (
-        <div>
+        <>
             <ChangePass />
-        </div>
+        </>
     );
 }
 
