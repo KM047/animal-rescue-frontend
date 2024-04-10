@@ -1,11 +1,11 @@
-import { Signup as SignupComp, TitleSetter } from "../components/index";
+import { UserSignup, TitleSetter } from "../components/index";
 
 function Signup() {
     return (
         <>
             <TitleSetter title={"User Signup"}>
                 <div className="py-8">
-                    <SignupComp />
+                    <UserSignup />
                 </div>
             </TitleSetter>
         </>
@@ -13,6 +13,3 @@ function Signup() {
 }
 
 export default Signup;
-
-
-

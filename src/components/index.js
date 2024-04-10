@@ -4,7 +4,7 @@ import SelectField from "./SelectField";
 import Loading from "./Loading";
 import SampleBtn from "./SampleBtn";
 import Logo from "./Logo";
-import Signup from "./Signup";
+import UserSignup from "./Signup";
 import Input from "./Input";
 import AuthLayout from "./AuthLayout";
 import LogoutBtn from "./Header/LogoutBtn";
@@ -27,7 +27,7 @@ export {
     Login,
     SelectField,
     Logo,
-    Signup,
+    UserSignup,
     Input,
     AuthLayout,
     LogoutBtn,
