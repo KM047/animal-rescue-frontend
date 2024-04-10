@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
-import { userSignup } from "./../api/userApi";
+import { userSignup } from "../api/userApi";
 
 function Signup() {
     const navigate = useNavigate();

@@ -6,7 +6,7 @@ import UserAddQuery from "./AddQuery";
 import UserAnimalDetail from "./AnimalDetail";
 import UserChangePassword from "./ChangePassword";
 import SignPageChoice from "./SignPageChoice";
-import UserSignup from "./Signup";
+import UserSignup from "./UserSignup";
 import AddRescuers from "./orgPages/AddRescuers";
 import ChangePasswordForOrg from "./orgPages/ChangePasswordForOrg";
 import OrgHome from "./orgPages/Home";
@@ -19,8 +19,7 @@ import RescuerAnimalDetail from "./rescuerPages/AnimalDetail";
 import ChangePasswordForRes from "./rescuerPages/ChangePasswordForRes";
 import RescuerHome from "./rescuerPages/Home";
 import RescuerProfile from "./rescuerPages/Profile";
-import RescuerLogin from './rescuerPages/Login';
-
+import RescuerLogin from "./rescuerPages/Login";
 
 export {
     UserHome,
@@ -44,5 +43,5 @@ export {
     ChangePasswordForRes,
     RescuerHome,
     RescuerProfile,
-    RescuerLogin
+    RescuerLogin,
 };
