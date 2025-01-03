@@ -62,7 +62,7 @@ function RescueAnimal() {
                 navigate("/rescuer");
             }
         } catch (error) {
-            console.log(error.message);
+            // console.log(error.message);
             throw error;
         }
     };

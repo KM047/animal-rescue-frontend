@@ -40,7 +40,7 @@ function LoginForOrg() {
 
                 // const allRescuersData = await getAllRescuers();
                 // if (allRescuersData.data) {
-                //     console.log(allRescuersData.data);
+                //    // console.log(allRescuersData.data);
                 //     dispatch(setAllRescuers(allRescuersData.data));
                 // }
 

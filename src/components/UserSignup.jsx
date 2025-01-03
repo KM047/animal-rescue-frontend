@@ -34,29 +34,17 @@ function Signup() {
             formData.append("password", data.password);
             formData.append("avatar", data.avatar[0]);
 
-            console.log("data - ", formData);
             setLoading(true);
             const response = await userSignup(formData);
-            // const response = await fetch(
-            //     "http://localhost:8000/api/v1/users/register",
-            //     {
-            //         method: "POST",
-            //         body: formData,
-            //     }
-            // );
-
-            // console.log("response -> ", response.data);
 
             if (response) {
-                // const responseData = await response.json();
                 setResponseMessage(response.message);
                 navigate("/login");
             } else {
-                // const errorData = await response.json();
                 setResponseMessage(response.message);
             }
         } catch (error) {
-            console.error("Error during signup:", error);
+            //  console.error("Error during signup:", error);
             setResponseMessage("Error during signup");
         } finally {
             setLoading(false);
@@ -139,7 +127,8 @@ function Signup() {
                         <Input
                             label="Profile Picture: "
                             type="file"
-                            placeholder="Upload you avatar"
+                            placeholder="Upload your avatar [.png, .jpg, .jpeg] only"
+                            accept="image/png, image/jpeg"
                             {...register("avatar", {
                                 required: true,
                             })}

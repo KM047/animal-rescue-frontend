@@ -39,7 +39,7 @@ function SignupForOrg() {
         }
 
         function error(error) {
-            console.log(error);
+            // console.log(error);
         }
 
         navigator.geolocation.getCurrentPosition(success, error, options);
@@ -151,7 +151,8 @@ function SignupForOrg() {
                         <Input
                             label="Organization Logo: "
                             type="file"
-                            placeholder="Upload your logo"
+                            placeholder="Upload your logo [.png, .jpg, .jpeg] only"
+                            accept="image/png, image/jpeg"
                             {...register("logo", {
                                 required: true,
                             })}

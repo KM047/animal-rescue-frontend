@@ -118,7 +118,6 @@ function UserAddQuery() {
         };
 
         function success(position) {
-            
             const { latitude, longitude } = position.coords;
 
             if (latitude && longitude) {
@@ -127,7 +126,7 @@ function UserAddQuery() {
         }
 
         function error(error) {
-            console.log(error);
+            // console.log(error);
         }
 
         navigator.geolocation.getCurrentPosition(success, error, options);
@@ -137,7 +136,6 @@ function UserAddQuery() {
     const addAnimal = async (data) => {
         try {
             const formData = new FormData();
-
 
             formData.append("animalType", data.animalType);
             formData.append("breed", data.breed);
@@ -150,11 +148,10 @@ function UserAddQuery() {
             const response = await addAnimalData(formData);
 
             if (response) {
-
                 setSuccess(true);
             }
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     };
 

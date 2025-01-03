@@ -55,8 +55,6 @@ export default function AddRescuers() {
                 }
             }
         } catch (error) {
-            console.log(error.message);
-            throw error;
         } finally {
             setOpen(false);
         }
@@ -72,8 +70,6 @@ export default function AddRescuers() {
                 dispatch(removeRescuer(rescuerId));
             }
         } catch (error) {
-            console.log(error.message);
-            throw error;
         } finally {
             setIsRemove(false);
         }

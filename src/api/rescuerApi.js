@@ -153,7 +153,7 @@ export const updateResAvatar = async (resData) => {
             }
         );
 
-        console.log("response: ", response);
+        // console.log("response: ", response);
 
         return response.data;
     } catch (error) {

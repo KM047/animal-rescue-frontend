@@ -45,7 +45,7 @@ function Profile() {
                 alert(response.message);
             }
         } catch (error) {
-            console.log(error.message);
+            // console.log(error.message);
             throw error;
         } finally {
             setOpen(false);

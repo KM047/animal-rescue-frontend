@@ -24,7 +24,7 @@ function LogoutBtn() {
             navigate("/org/login");
             window.location.reload();
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         }
     };
 

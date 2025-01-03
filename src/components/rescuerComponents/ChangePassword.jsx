@@ -25,9 +25,9 @@ function ChangePassword() {
     const updatePassword = async (passData) => {
         const { oldPassword, newPassword, confirmPassword } = passData;
 
-        console.log(passData);
+        // console.log(passData);
 
-        console.log("this is a new password");
+        // console.log("this is a new password");
         const formData = new FormData();
 
         try {
@@ -51,7 +51,7 @@ function ChangePassword() {
                 }
             }
         } catch (error) {
-            console.log(error.message);
+            // console.log(error.message);
             throw error;
         }
     };
@@ -113,7 +113,6 @@ function ChangePassword() {
                                                     className="text-base font-semibold leading-6 text-gray-900"
                                                 >
                                                     Change the rescuer password
-                                                    
                                                 </Dialog.Title>
                                                 <div className="mt-2">
                                                     <Input
